@@ -5,6 +5,8 @@ import {getData, getDatas} from "./api/api";
 import {limit, site} from "./api/constants";
 import Pokemons from './model/pokemons'
 
+import PaginationComponet from './components/PaginationComponent';
+
 import Card from './components/Card';
 import { useState } from 'react';
 
@@ -32,18 +34,28 @@ export default function App() {
     init()
   }, [site])
 
+    useEffect(()=>{
+      setCurrentPage(0)
+    }, [itensPerPage])
 
   return (
     <div className="App">
-      <div>
-        {Array.from(Array(pages), (item, index) => {
-          return <button key={index}>{index}</button>
-        })}
-      </div>
+      <dir>
+        <select value={itensPerPage} onChange={(e)=>setItensPerPage(Number(e.target.value))}>
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={15}>15</option>
+          <option value={20}>20</option>
+        </select>
+      </dir>
+
+      <PaginationComponet setCurrentPage={setCurrentPage} pages={pages}></PaginationComponet>
+
       {/* {pokemons && pokemons.length === limit?console.log(pokemons.length,pokemons):null} */}
       {pokemons && pokemons.length === limit? 
         currentItens?.map(pokemon => (
           <Card 
+            id={pokemon.id}
             key={pokemon.name}
             url={pokemon?.sprites?.front_default}
             nome={pokemon?.name}
