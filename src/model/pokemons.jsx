@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import {getData, getDatas} from "../api/api";
+
 export default function Pokemons(){
     
     const [pokemons, setPokemons] = useState([]);
@@ -18,17 +20,28 @@ export default function Pokemons(){
         )
     }
 
-    function order(element){
-        element.sort(function(a, b){
-            if(a.order > b.order){
-                return 1
-            }
-            if(a.order < b.order){
-                return -1
-            }
-                return 0
-        })
+    function pokemonOrder(a, b){
+        if(a.order > b.order){
+            return 1
+        }
+        if(a.order < b.order){
+            return -1
+        }
+            return 0
+    }
+
+    function order(element, pokemonOrder){
+        element.sort(pokemonOrder)
         return element
+    }
+
+    async function initPokemons(site){
+        const data = await getData(site)
+        const index = await extractIndex(data)
+        const urls = await mountURLs(index)
+        const pokemonsOutOfOrder = await getDatas(urls)
+        const pokemonsInOrder = await order(pokemonsOutOfOrder, pokemonOrder)
+        setPokemons(pokemonsInOrder)
     }
 
     return{
@@ -38,7 +51,8 @@ export default function Pokemons(){
         setUrls,
         extractIndex,
         mountURLs,
-        order
+        order,
+        initPokemons
     }
 }
 
