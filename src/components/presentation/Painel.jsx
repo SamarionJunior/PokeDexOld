@@ -6,11 +6,11 @@ import SameTypes from "./detail/SameTypes";
 import Advantages from "./detail/Advantages";
 import Disadvantages from "./detail/Disadvantages";
 
-export default function Cards({selectedItem}){
+export default function Painel({selectedItem}){
     return (
         <div>
-            {console.log(selectedItem)}
-            <Informations/>
+            {/* {console.log(selectedItem)} */}
+            <Informations selectedItem={selectedItem}/>
             <Evolutions/>
             <SameTypes/>
             <Advantages/>
