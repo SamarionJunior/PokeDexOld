@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Attacks({name, setSelectedItem, item}){
     return (
         <div>
-            <button onClick={() => {setSelectedItem(item)}}>{name}</button>
+            <Link to="/painel" onClick={() => {setSelectedItem(item)}}>{name}</Link>
         </div>
     )
 }
