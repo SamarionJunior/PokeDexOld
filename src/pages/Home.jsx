@@ -11,7 +11,7 @@ export default function Home({itensPerPage, setItensPerPage, limit, setCurrentPa
 
             <PaginationButton setCurrentPage={setCurrentPage} pages={pages}/>
 
-            <Cards currentItens={currentItens} setSelectedItem={setSelectedItem}/>
+            <Cards currentItens={currentItens}/>
         </div>
     )
 }

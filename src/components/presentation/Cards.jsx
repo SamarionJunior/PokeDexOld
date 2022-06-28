@@ -2,13 +2,12 @@ import React from "react";
 
 import Card from './Card'
 
-export default function Cards({currentItens, setSelectedItem}){
+export default function Cards({currentItens}){
     return (
         <div>
             {currentItens.map(pokemon => (
             <Card 
                 item = {pokemon}
-                setSelectedItem = {setSelectedItem}
                 key={pokemon?.id}
                 id={pokemon?.id}
                 url={pokemon?.sprites}

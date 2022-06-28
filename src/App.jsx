@@ -14,13 +14,14 @@ import Home from './pages/Home';
 
 import { useState } from 'react';
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 export default function App() {
 
   const {pokemons, initPokemons} = Pokemons()
 
   const {itensPerPage, setItensPerPage, setCurrentPage, pages, currentItens} = PaginationConstant(pokemons)
-
-  const [selectedItem, setSelectedItem] = useState()
 
   useEffect(() => {
     initPokemons(site)
@@ -32,12 +33,12 @@ export default function App() {
 
   return (
     <div className="App">
-        
+      <Provider store={store}>
         <Routes>
-          <Route path="painel" element={<Painel selectedItem={selectedItem}/>} />
-          <Route path="/" element={<Home itensPerPage={itensPerPage} setItensPerPage={setItensPerPage} limit={limit} setCurrentPage={setCurrentPage} pages={pages} currentItens={currentItens} setSelectedItem={setSelectedItem} />} />
+          {/* <Route path="painel" element={<Painel selectedItem={selectedItem}/>} /> */}
+          <Route path="/" element={<Home itensPerPage={itensPerPage} setItensPerPage={setItensPerPage} limit={limit} setCurrentPage={setCurrentPage} pages={pages} currentItens={currentItens}/>} />
         </Routes>
-      
+      </Provider>
       {/* {pokemons && pokemons.length === limit?console.log(pokemons.length,pokemons):null} */}
     </div>
   );
