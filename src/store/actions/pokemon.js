@@ -1,6 +1,6 @@
-export function setInformation(information){
+export function setSelectedItem(itemSelected){
     return {
-        type: "SET_INFORMATION",
-        information
+        type: "SET_SELECTED_ITEM",
+        itemSelected
     }
 }
