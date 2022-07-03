@@ -16,7 +16,7 @@ const Home = ({information, setSelectedItem}) => {
             </div>
         )} */}
         {information}
-        asddfads
+        asddfad
     </div>
 }
 
