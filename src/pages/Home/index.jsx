@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = ({pokemons}) => {
     const pokemonName = pokemons.map(pokemon => pokemon.nome)
-    console.log(pokemonName)
+    // console.log(pokemonName)
     return (
         <div>
             <h1>Home</h1>

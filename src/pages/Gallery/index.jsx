@@ -5,11 +5,10 @@ import { bindActionCreators } from "redux";
 
 import * as PokemonActions from "../../store/actions/pokemon";
 
-const Gallery = ({pokemons, setSelectedItem}) => (
+const Gallery = ({pokemons, setSelectedPokemon}) => (
     <div>
-        <ul>
-            
-        </ul>
+        {console.log(pokemons)}
+        {console.log(setSelectedPokemon)}
         <Link to="/">Inicio</Link>
     </div>
 )
