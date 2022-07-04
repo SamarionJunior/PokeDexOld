@@ -1,6 +1,6 @@
-export function setSelectedItem(itemSelected){
+export function setSelectedItem(pokemonSelected){
     return {
-        type: "SET_SELECTED_ITEM",
-        itemSelected
+        type: "SET_SELECTED_POKEMON",
+        pokemonSelected
     }
 }

@@ -1,31 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 
-import * as PokemonActions from "../../store/actions/pokemon";
-
-const Home = ({information, setSelectedItem}) => {
-    <div>
-        {/* {information.map(pokemon => 
-            <div key={pokemon.id}>
-                <h1>{pokemon.nome}</h1>
-                <Link to="/painel" onClick={
-                    () => setSelectedItem(pokemon.nome)
-                }>Ver Mais</Link>
-            </div>
-        )} */}
-        {information}
-        asddfad
-    </div>
+const Home = ({pokemons}) => {
+    const pokemonName = pokemons.map(pokemon => pokemon.nome)
+    console.log(pokemonName)
+    return (
+        <div>
+            <h1>Home</h1>
+            <input type="text" placeholder="Digite o nome do Pokemon!"/>
+            <input type="submit" placeholder="Pesquisar"/>
+            <Link to="/gallery">Ver Todos</Link>
+        </div>
+    )
 }
 
 const mapStateToProps = state => (
-    {information: state.pokemon.information}
+    {pokemons: state.pokemon.pokemons}
 )
 
-const mapDispatchToProps = dispatch => (
-    bindActionCreators(PokemonActions, dispatch)
-)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)
