@@ -4,7 +4,7 @@ export default function pagination(state = INITIAL_STATE, action){
     if(action.type === 'SET_ITENS_PER_PAGE'){
         return {
             ...state,
-            ItensPerPage: action.ItensPerPage
+            itensPerPage: action.itensPerPage
         }
     }
     if(action.type === 'SET_CURRENT_PAGE'){

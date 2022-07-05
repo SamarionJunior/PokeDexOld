@@ -1,7 +1,7 @@
-export function setItensPerPage(ItensPerPage){
+export function setItensPerPage(itensPerPage){
     return {
         type: "SET_ITENS_PER_PAGE",
-        ItensPerPage
+        itensPerPage
     }
 }
 
