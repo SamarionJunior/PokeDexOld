@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import * as PokemonActions from "../../store/actions/pokemon";
+import Pagination from "./Pagination";
+
+
 
 const Gallery = ({pokemons, setSelectedPokemon}) => (
     <div>
-        {console.log(pokemons)}
-        {console.log(setSelectedPokemon)}
+        <Pagination></Pagination>
         <Link to="/">Inicio</Link>
     </div>
 )

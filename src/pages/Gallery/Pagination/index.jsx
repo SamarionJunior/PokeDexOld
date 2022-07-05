@@ -4,29 +4,23 @@ import { bindActionCreators } from "redux";
 
 import * as PaginationActions from "../../../store/actions/pagination";
 
-const Pagination = ({
-    pokemons, itensPerPage, currentPage, pages, startIndex, endIndex, currentItens,
-    setItensPerPage, setCurrentPage, setPages, setStartIndex, setEndIndex, setCurrentItens
-}) => {
+const Pagination = ({pokemons, itensPerPage, currentPage, pages, startIndex, endIndex, currentItens, setItensPerPage, setCurrentPage, setPages, setStartIndex, setEndIndex, setCurrentItens}) => {
 
-    const [itensPerPage, setItensPerPage] = useState(10)
-    const [currentPage, setCurrentPage] = useState(0)
-
-    const pages = Math.ceil(pokemons.length / itensPerPage)
-    const startIndex = currentPage * itensPerPage;
-    const endIndex = startIndex + itensPerPage
-    const currentItens = pokemons.slice(startIndex, endIndex)
+    setPages(Math.ceil(pokemons.length / itensPerPage))
+    setStartIndex(currentPage * itensPerPage)
+    setEndIndex(startIndex + itensPerPage)
+    setCurrentItens(pokemons.slice(startIndex, endIndex))
 
     return (
         <div>
-            <dir>
+            <div>
                 <select value={itensPerPage} onChange={(e)=>setItensPerPage(Number(e.target.value))}>
-                    {[5].map(sequence => <option value={sequence} key={sequence}>{sequence}</option>)}
+                    {[5,10,15].map(sequence => <option value={sequence} key={sequence}>{sequence}</option>)}
                 </select>
-            </dir>
+            </div>
 
             <div>
-                {Array.from(Array(pages), (item, index) => (<button key={index} value={index} onClickCapture={(e)=> SetCurrentPage(Number(e.target.value))}>{index + 1}</button>))}
+                {Array.from(Array(pages), (item, index) => (<button key={index} value={index} onClickCapture={(e)=> setCurrentPage(Number(e.target.value))}>{index + 1}</button>))}
             </div>
         </div>
     )
@@ -45,10 +39,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators(PaginationActions, Pagination)
+    bindActionCreators(PaginationActions, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery)
+export default connect(mapStateToProps, mapDispatchToProps)(Pagination)
 
 
 
