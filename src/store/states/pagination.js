@@ -1,10 +1,10 @@
 const INITIAL_STATE = {
-    itensPerPage: 0,
+    itensPerPage: 1,
     currentPage: 0,
     pages: 0,
     startIndex: 0,
     endIndex: 0,
-    currentItens: 0
+    currentItens: []
 }
 
 export default INITIAL_STATE

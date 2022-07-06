@@ -1,26 +1,59 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import * as PaginationActions from "../../../store/actions/pagination";
 
+
+
 const Pagination = ({pokemons, itensPerPage, currentPage, pages, startIndex, endIndex, currentItens, setItensPerPage, setCurrentPage, setPages, setStartIndex, setEndIndex, setCurrentItens}) => {
 
-    setPages(Math.ceil(pokemons.length / itensPerPage))
-    setStartIndex(currentPage * itensPerPage)
-    setEndIndex(startIndex + itensPerPage)
-    setCurrentItens(pokemons.slice(startIndex, endIndex))
+    async function config(){
+        await setCurrentPage(0)
+        await setPages(Math.ceil(pokemons.length / itensPerPage))
+        await setStartIndex(currentPage * itensPerPage)
+        await setEndIndex(startIndex + itensPerPage)
+        await setCurrentItens(pokemons.slice(startIndex, endIndex))
+    }
+
+    useEffect(() => {
+        config()
+    }, [itensPerPage, currentPage])
+
+    function Console(){
+        console.clear()
+        console.log(currentItens)
+    }
 
     return (
         <div>
             <div>
-                <select value={itensPerPage} onChange={(e)=>setItensPerPage(Number(e.target.value))}>
-                    {[5,10,15].map(sequence => <option value={sequence} key={sequence}>{sequence}</option>)}
+                <select value={itensPerPage} onChange={(e) => {setItensPerPage(Number(+e.target.value));setCurrentPage(0)}}>
+                    <option value={1}>{1}</option>
+                    <option value={2}>{2}</option>
+                    <option value={3}>{3}</option>
+                    <option value={4}>{4}</option>
+                    <option value={5}>{5}</option>
+                    <option value={6}>{6}</option>
+                    <option value={7}>{7}</option>
+                    <option value={8}>{8}</option>
+                    <option value={9}>{9}</option>
                 </select>
             </div>
-
             <div>
-                {Array.from(Array(pages), (item, index) => (<button key={index} value={index} onClickCapture={(e)=> setCurrentPage(Number(e.target.value))}>{index + 1}</button>))}
+                {/* {Console()} */}
+                {currentItens.map(currentItem => (
+                    <div key={currentItem.id}>
+                        {currentItem.name}
+                    </div>)
+                )}
+            </div>
+            {currentPage}
+            <div>
+                {Array.from(Array(pages), (item, index) => (<button key={index} value={index} onClickCapture={(e) => setCurrentPage(Number(+e.target.value))}>
+                    {index + 1}
+                </button>))}
             </div>
         </div>
     )
