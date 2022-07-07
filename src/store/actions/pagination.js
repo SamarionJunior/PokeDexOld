@@ -13,10 +13,12 @@ export function setItensPerPage(itens, itensPerPage){
     }
 }
 
-export function setCurrentPage(currentPage){
+export function setCurrentPage(itens, currentPage, itensPerPage){
     return {
         type: "SET_CURRENT_PAGE",
-        currentPage
+        itens,
+        currentPage,
+        itensPerPage,
     }
 }
 

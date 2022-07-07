@@ -7,6 +7,8 @@ import * as PaginationActions from "../../../../store/actions/pagination";
 
 const Selector = ({pokemons, itensPerPage, setItensPerPage}) => {
 
+    const sequence = [1,2,3,4,5,6,7,8,9]
+
     useEffect(() => {
         setItensPerPage(pokemons, itensPerPage)
     }, [])
@@ -15,15 +17,7 @@ const Selector = ({pokemons, itensPerPage, setItensPerPage}) => {
         <div>
             <div>
                 <select onChange={(e) => setItensPerPage(pokemons, Number(+e.target.value))}>
-                    <option value={1}>{1}</option>
-                    <option value={2}>{2}</option>
-                    <option value={3}>{3}</option>
-                    <option value={4}>{4}</option>
-                    <option value={5}>{5}</option>
-                    <option value={6}>{6}</option>
-                    <option value={7}>{7}</option>
-                    <option value={8}>{8}</option>
-                    <option value={9}>{9}</option>
+                    {sequence.map(index => <option key={index} value={index}>{index}</option>)}
                 </select>
             </div>
         </div>

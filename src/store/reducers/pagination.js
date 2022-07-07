@@ -27,9 +27,19 @@ export default function pagination(state = INITIAL_STATE, action){
         }
     }
     if(action.type === 'SET_CURRENT_PAGE'){
+        
+        const currentPage = action.currentPage
+        const startIndex = action.currentPage * action.itensPerPage
+        const endIndex = startIndex + action.itensPerPage
+        const currentItens = action.itens.slice(startIndex, endIndex)
+
         return {
             ...state,
-            currentPage: action.currentPage
+            currentPage,
+            startIndex,
+            endIndex,
+            currentItens,
+
         }
     }
     if(action.type === 'SET_PAGES'){
