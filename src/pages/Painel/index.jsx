@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 
 const Painel = ({pokemonSelected}) => (
     <div>
-        <h1>{pokemonSelected.nome}</h1>
-        <Link to="/">Voltar</Link>
+        <h1>painel</h1>
+        <h1>{pokemonSelected.name}</h1>
+        <Link to="/gallery">Voltar</Link>
     </div>
 )
 

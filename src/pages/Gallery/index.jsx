@@ -10,6 +10,9 @@ import Pagination from "./Pagination";
 
 const Gallery = ({pokemons, setSelectedPokemon}) => (
     <div>
+        <h1>Gallery</h1>
+        <input type="text" placeholder="Digite o nome do Pokemon!"/>
+        <input type="submit" placeholder="Pesquisar"/>
         <Pagination></Pagination>
         <Link to="/">Inicio</Link>
     </div>
