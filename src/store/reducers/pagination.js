@@ -1,10 +1,29 @@
 import INITIAL_STATE from "../states/pagination"
 
 export default function pagination(state = INITIAL_STATE, action){
-    if(action.type === 'SET_ITENS_PER_PAGE'){
+    if(action.type === 'SET_ITENS'){
         return {
             ...state,
-            itensPerPage: action.itensPerPage
+            itens: action.itens
+        }
+    }
+    if(action.type === 'SET_ITENS_PER_PAGE'){
+        
+        const itensPerPage = action.itensPerPage
+        const currentPage = 0
+        const pages = Math.ceil(action.itens.length / action.itensPerPage)
+        const startIndex = currentPage * action.itensPerPage
+        const endIndex = startIndex + action.itensPerPage
+        const currentItens = action.itens.slice(startIndex, endIndex)
+
+        return {
+            ...state,
+            itensPerPage,
+            currentPage,
+            pages,
+            startIndex,
+            endIndex,
+            currentItens,
         }
     }
     if(action.type === 'SET_CURRENT_PAGE'){
