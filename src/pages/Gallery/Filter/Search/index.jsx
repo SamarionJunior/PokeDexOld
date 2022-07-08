@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as SearchActions from "../../../store/actions/search";
+import * as FilterActions from "../../../../store/actions/filter";
 
 const Search = ({setSearch}) => (
     <div>
@@ -11,7 +11,7 @@ const Search = ({setSearch}) => (
 )
 
 const mapDispatchToProps = dispatch => (
-    bindActionCreators(SearchActions, dispatch)
+    bindActionCreators(FilterActions, dispatch)
 )
 
 export default connect(null, mapDispatchToProps)(Search)

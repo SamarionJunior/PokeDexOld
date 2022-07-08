@@ -1,6 +1,5 @@
 const INITIAL_STATE = {
-    search: null,
-    currentItensFiltered: [],
+    itens: [],
 }
 
 export default INITIAL_STATE

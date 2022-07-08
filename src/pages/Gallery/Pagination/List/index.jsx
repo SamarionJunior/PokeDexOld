@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
 import * as PokemonActions from "../../../../store/actions/pokemon"
-import * as SearchActions from "../../../../store/actions/search"
+import * as FilterActions from "../../../../store/actions/filter"
 
 const List = ({currentItens, search, currentItensFiltered, setCurrentItensFiltered, setSelectedPokemon}) => {
     
@@ -25,14 +25,10 @@ const List = ({currentItens, search, currentItensFiltered, setCurrentItensFilter
 
 const mapStateToProps = state => ({
     currentItens: state.pagination.currentItens,
-    search: state.search.search,
-    currentItensFiltered: state.search.currentItensFiltered,
+    search: state.filter.search,
+    currentItensFiltered: state.filter.currentItensFiltered,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(Object.assign(PokemonActions, SearchActions), dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(Object.assign(PokemonActions, FilterActions), dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)
-
-
-
-
