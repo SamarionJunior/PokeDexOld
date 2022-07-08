@@ -1,21 +1,16 @@
 import React from "react";
-import { useMemo } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 
 import * as PokemonActions from "../../../../store/actions/pokemon"
+import * as SearchActions from "../../../../store/actions/search"
 
-const List = ({currentItens, search, setSelectedPokemon}) => {
-    const currentItensFiltered = useMemo(() => {
-        if(search){
-            const lowerSearch = search.toLowerCase()
-            return currentItens.filter((currentItem) => 
-                currentItem.name.toLowerCase().includes(lowerSearch)
-            )
-        }
-        return currentItens
-    }, [search, currentItens])
+const List = ({currentItens, search, currentItensFiltered, setCurrentItensFiltered, setSelectedPokemon}) => {
+    
+    useEffect(() => {setCurrentItensFiltered(search, currentItens)}, [search, currentItens])
+
     return (
         <div>
             {currentItensFiltered.map(currentItemFiltered => (
@@ -31,9 +26,10 @@ const List = ({currentItens, search, setSelectedPokemon}) => {
 const mapStateToProps = state => ({
     currentItens: state.pagination.currentItens,
     search: state.search.search,
+    currentItensFiltered: state.search.currentItensFiltered,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(PokemonActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(Object.assign(PokemonActions, SearchActions), dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)
 

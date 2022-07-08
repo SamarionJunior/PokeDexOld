@@ -114,6 +114,16 @@
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Pagination)
 
+/// # SEARCH //////////////////////////////
 
+// const currentItensFiltered = useMemo(() => {
+//     if(search){
+//         const lowerSearch = search.toLowerCase()
+//         return currentItens.filter((currentItem) => 
+//             currentItem.name.toLowerCase().includes(lowerSearch)
+//         )
+//     }
+//     return currentItens
+// }, [search, currentItens])
 
 

@@ -4,3 +4,11 @@ export function setSearch(search,){
         search
     }
 }
+
+export function setCurrentItensFiltered(search, currentItens){
+    return {
+        type: "SET_CURRENT_ITENS_FILTERED",
+        search,
+        currentItens
+    }
+}

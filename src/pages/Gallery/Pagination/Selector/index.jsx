@@ -16,7 +16,7 @@ const Selector = ({pokemons, itensPerPage, setItensPerPage}) => {
     return (
         <div>
             <div>
-                <select onChange={(e) => setItensPerPage(pokemons, Number(+e.target.value))}>
+                <select value={itensPerPage} onChange={(e) => setItensPerPage(pokemons, Number(+e.target.value))}>
                     {sequence.map(index => <option key={index} value={index}>{index}</option>)}
                 </select>
             </div>
