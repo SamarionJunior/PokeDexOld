@@ -7,9 +7,11 @@ import { bindActionCreators } from "redux";
 import * as PokemonActions from "../../../../store/actions/pokemon"
 import * as FilterActions from "../../../../store/actions/filter"
 
-const List = ({currentItens, search, currentItensFiltered, setCurrentItensFiltered, setSelectedPokemon}) => {
+const List = ({pokemons, search, options, order, currentItensFiltered, setCurrentItensFiltered, setSelectedPokemon}) => {
     
-    useEffect(() => {setCurrentItensFiltered(search, currentItens)}, [search, currentItens])
+    useEffect(() => {
+        setCurrentItensFiltered(search, options, order, pokemons)
+    }, [search, options, order, pokemons])
 
     return (
         <div>
@@ -24,8 +26,10 @@ const List = ({currentItens, search, currentItensFiltered, setCurrentItensFilter
 }
 
 const mapStateToProps = state => ({
-    currentItens: state.pagination.currentItens,
+    pokemons: state.pokemon.pokemons,
     search: state.filter.search,
+    options: state.filter.options,
+    order: state.filter.order,
     currentItensFiltered: state.filter.currentItensFiltered,
 })
 

@@ -4,8 +4,6 @@ import { bindActionCreators } from "redux";
 
 import * as FilterActions from "../../../../store/actions/filter";
 
-/// ascending or descending
-
 const selectors = [    
     {title: "Nenhum", isOrder: false, direction: null, property: null},
     {title: "Id Crescente", isOrder: true, direction: "ascending", property: "id"},
@@ -14,13 +12,9 @@ const selectors = [
     {title: "Nome Decrescente", isOrder: true, direction: "descending", property: "name"},
 ]
 
-function find(itens, key){
-    return itens.filter(item => item.title === key)
-}
-
 const Order = ({setOrder}) => {
 
-    const [selected, setSelected] = useState({})
+    const [selected, setSelected] = useState({title: "", isOrder: false, direction: null, property: null})
 
     useEffect(() => {
         setOrder(selected.title, selected.isOrder, selected.direction, selected.property)
@@ -28,18 +22,17 @@ const Order = ({setOrder}) => {
     
     return (
         <div>
-            <select value={selected} onChange={
+            <select value={selected.title} onChange={
                 (e) => {
                     const titleSelected = String(e.target.value)
                     if(titleSelected){
-                        const selector = selectors.filter(sel => sel.title === titleSelected)
-                        {console.log(titleSelected, selector)}
-                        setSelected(selector.title, selector.isOrder, selector.direction, selector.property)
+                        const selectorFiltered = selectors.filter(selector => selector.title === titleSelected)[0]
+                        setSelected(selectorFiltered.title, selectorFiltered.isOrder, selectorFiltered.direction, selectorFiltered.property)
                     }
                 }
             }>
                 {selectors.map(index => 
-                    <option key={index.title} value={title} >
+                    <option key={index.title} value={index.title} >
                         {index.title}
                     </option>
                 )}

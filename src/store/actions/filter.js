@@ -5,11 +5,13 @@ export function setSearch(search,){
     }
 }
 
-export function setCurrentItensFiltered(search, currentItens){
+export function setCurrentItensFiltered(search, options, order, itens){
     return {
         type: "SET_CURRENT_ITENS_FILTERED",
         search,
-        currentItens
+        options,
+        order,
+        itens
     }
 }
 
