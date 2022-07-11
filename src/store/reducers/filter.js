@@ -18,27 +18,21 @@ export default function search(state = INITIAL_STATE, action){
             currentItensFiltered: currentItensFiltered
         }
     }
-    
-    // if(action.type === "SET_OPTIONS"){
-        
-    //     const lowerOption = action.options.map(option => option.toLowerCase())
-
-    //     const currentItensFiltered = action.currentItens.filter((currentItem) => 
-    //         lowerOption.filter((acc, option) => {
-    //             acc && currentItem.type.toLowerCase().includes(option.toLowerCase())
-    //         }, true)
-    //     )
-
-    //     return {
-    //         ...state,
-    //         currentItensFiltered: currentItensFiltered
-    //     }
-    // }
 
     if(action.type === "SET_OPTIONS"){
         return {
             ...state,
             options: action.options
+        }
+    }
+
+    if(action.type === "SET_ORDER"){
+        return {
+            ...state,
+            title: action.title,
+            isOrder: action.isOrder,
+            direction: action.direction,
+            property: action.property,
         }
     }
 
