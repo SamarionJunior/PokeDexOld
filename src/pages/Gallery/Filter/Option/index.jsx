@@ -6,8 +6,12 @@ import { bindActionCreators } from "redux";
 
 import * as FilterActions from "../../../../store/actions/filter";
 
+const arrayOptions = ["terra", "agua", "fogo", "ar"]
+
 const Option = ({setOptions}) => {
-    const [check, setCheck] = useState(["terra", "agua", "fogo", "ar"])
+
+    const [check, setCheck] = useState([])
+    
     useEffect(() => {
         setOptions(check)
     }, [check])
@@ -15,35 +19,22 @@ const Option = ({setOptions}) => {
     return (
         <fieldset>
             <legend>Tipos</legend>
-            <div>
-                <input type="checkbox" id="terra" name="terra" value="terra" onChange={
-                    (e) => setCheck(
-                        (oldCheck) => {
-                            if(oldCheck.){
-                                
-                            }
-                            console.log(oldCheck)
-                            return ([
-                                ...oldCheck,
-                                e.target.value
-                            ])
+            {arrayOptions.map(itensOption => (
+                <div key={itensOption}>
+                    <input type="checkbox" id={itensOption} name={itensOption} value={itensOption} onChange={(e) => setCheck((oldCheck) => {
+                        if(oldCheck.includes(e.target.value)){
+                            oldCheck.splice(oldCheck.indexOf(e.target.value), 1)
+                            const newCheck = oldCheck
+                            return ([...newCheck])
+                        }else{
+                            oldCheck.push(e.target.value)
+                            const newCheck = oldCheck
+                            return ([...newCheck])
                         }
-                    )
-                }/>
-                <label htmlFor="terra">Terra</ label>
-            </ div>
-            <div>
-                <input type="checkbox" id="agua" name="agua" value="agua"/>
-                <label htmlFor="agua">Água</ label>
-            </ div>
-            <div>
-                <input type="checkbox" id="fogo" name="fogo" value="fogo"/>
-                <label htmlFor="fogo">Fogo</ label>
-            </ div>
-            <div>
-                <input type="checkbox" id="ar" name="ar" value="ar"/>
-                <label htmlFor="ar">Ár</ label>
-            </ div>
+                    })}/>
+                    <label htmlFor={itensOption}>{itensOption[0].toUpperCase() + itensOption.substring(1)}</ label>
+                </ div>
+            ))}
         </ fieldset>
     )
 }
