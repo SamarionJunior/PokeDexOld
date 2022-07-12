@@ -17,7 +17,7 @@ const Order = ({setOrder}) => {
     const [selected, setSelected] = useState({title: "", isOrder: false, direction: null, property: null})
 
     useEffect(() => {
-        setOrder(selected.title, selected.isOrder, selected.direction, selected.property)
+        setOrder(selected)
     }, [selected])
     
     return (
@@ -27,7 +27,7 @@ const Order = ({setOrder}) => {
                     const titleSelected = String(e.target.value)
                     if(titleSelected){
                         const selectorFiltered = selectors.filter(selector => selector.title === titleSelected)[0]
-                        setSelected(selectorFiltered.title, selectorFiltered.isOrder, selectorFiltered.direction, selectorFiltered.property)
+                        setSelected(selectorFiltered)
                     }
                 }
             }>

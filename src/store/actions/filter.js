@@ -18,16 +18,13 @@ export function setCurrentItensFiltered(search, options, order, itens){
 export function setOptions(options){
     return {
         type: "SET_OPTIONS",
-        options,
+        options
     }
 }
 
-export function setOrder(title, isOrder, direction, property){
+export function setOrder(order){
     return {
         type: "SET_ORDER",
-        title,
-        isOrder,
-        direction,
-        property,
+        order
     }
 }

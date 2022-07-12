@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     search: null,
     options: [],
     order: {
-        title: false,
+        title: "",
         isOrder: false,
         direction: null,
         property: null

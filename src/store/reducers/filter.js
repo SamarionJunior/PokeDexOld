@@ -19,19 +19,52 @@ export default function search(state = INITIAL_STATE, action){
 
         const itensSearched = lowerSearch && itens ? itens.filter(item => item.name.toLowerCase().includes(lowerSearch)) : action.itens
 
-        const itensOptioned = options && itens ? itensSearched.filter(item => 
-            item.types.map(type => 
-                options.map(option => 
-                    type.type.name === option
-                )
-            )
-        ) : itensSearched
+        const itensOptioned = options && itens ? itensSearched.filter(item => {
+            console.log(item.types)
+            return item.types.reducer((acc, type) => {
+                console.log(acc, type)
+                // return options.reducer((acc, option) => {
+                //     return (type.type.name === option) && acc
+                // }, [true]) && acc
+            }, true)
+        }) : itensSearched
 
-        const itensOrdered = order && itens ? itensSearched.order(item => item.type) : itensOptioned
+        console.log(itensOptioned)
 
-        return {
-            ...state,
-            currentItensFiltered: itensOrdered
+        if(action.order.isOrder){
+            const itensOrdered = order.isOrder && itens ? itensOptioned.sort((a, b) => {
+                if(action.order.direction === "ascending"){
+                    if (a[action.order.property] > b[action.order.property]) {
+                        return 1;
+                    }
+                    if (a[action.order.property] < b[action.order.property]) {
+                        return -1;
+                    }
+                    return 0;
+                }else if(action.order.direction === "descending"){
+                    if (a[action.order.property] > b[action.order.property]) {
+                        return 1;
+                    }
+                    if (a[action.order.property] < b[action.order.property]) {
+                        return -1;
+                    }
+                    return 0;
+                }
+
+            }) : itensOptioned
+
+            return {
+                ...state,
+                currentItensFiltered: itensOrdered
+            }
+
+        }else{
+            const itensOrdered = itensOptioned
+
+            return {
+                ...state,
+                currentItensFiltered: itensOrdered
+            }
         }
     }
 
@@ -45,10 +78,7 @@ export default function search(state = INITIAL_STATE, action){
     if(action.type === "SET_ORDER"){
         return {
             ...state,
-            title: action.title,
-            isOrder: action.isOrder,
-            direction: action.direction,
-            property: action.property,
+            order: action.order,
         }
     }
 
