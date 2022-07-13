@@ -11,28 +11,28 @@ export default function search(state = INITIAL_STATE, action){
 
         const lowerSearch = action.search ? action.search.toLowerCase() : null
 
-        const options = action.options ?? null
+        const options = action.options !== [] ? action.options : null
 
-        const order = action.order ?? null
+        const order = action.order !== false ? action.order : null
 
-        const itens = action.itens ?? null
+        const itens = action.itens !== [] ? action.itens : null
 
-        const itensSearched = lowerSearch && itens ? itens.filter(item => item.name.toLowerCase().includes(lowerSearch)) : action.itens
+        const itensSearched = lowerSearch !== "" && itens !== [] ? itens.filter(item => item.name.toLowerCase().includes(lowerSearch)) : itens
 
-        const itensOptioned = options && itens ? itensSearched.filter(item => {
-            console.log(item.types)
-            return item.types.reducer((acc, type) => {
-                console.log(acc, type)
-                // return options.reducer((acc, option) => {
-                //     return (type.type.name === option) && acc
-                // }, [true]) && acc
-            }, true)
+        console.log(itensSearched, itens)
+
+        const itensOptioned = options !== [] && itensSearched !== [] ? itensSearched.filter(item => {
+            return item.types.reduce((acc, type) => {
+                return options.reduce((acc, option) => {
+                    return (type.type.name === option) || acc
+                }, false) || acc
+            }, false)
         }) : itensSearched
 
-        console.log(itensOptioned)
+        console.log(itensSearched, itens)
 
         if(action.order.isOrder){
-            const itensOrdered = order.isOrder && itens ? itensOptioned.sort((a, b) => {
+            const itensOrdered = order.isOrder !== false && itensOptioned !== [] ? itensOptioned.sort((a, b) => {
                 if(action.order.direction === "ascending"){
                     if (a[action.order.property] > b[action.order.property]) {
                         return 1;

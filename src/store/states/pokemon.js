@@ -25,7 +25,7 @@ const INITIAL_STATE = {
             {type: {name: "fogo"}}
         ]},
         {id: 7, name: "h", types: [
-            {type: {name: "aguar"}},
+            {type: {name: "agua"}},
             {type: {name: "ar"}}
         ]},
         {id: 8, name: "i", types: [
