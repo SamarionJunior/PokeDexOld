@@ -1,34 +1,34 @@
 const INITIAL_STATE = {
     pokemons: [
-        {id: 0, name: "a", types: [
+        {id: 0, name: "aa", types: [
             {type: {name: "agua"}}
         ]},
-        {id: 1, name: "b", types: [
+        {id: 1, name: "ba", types: [
             {type: {name: "terra"}}
         ]},
-        {id: 2, name: "c", types: [
+        {id: 2, name: "ca", types: [
             {type: {name: "fogo"}}
         ]},
-        {id: 3, name: "d", types: [
+        {id: 3, name: "db", types: [
             {type: {name: "ar"}}
         ]},
-        {id: 4, name: "e", types: [
+        {id: 4, name: "eb", types: [
             {type: {name: "agua"}},
             {type: {name: "terra"}}
         ]},
-        {id: 5, name: "f", types: [
+        {id: 5, name: "fb", types: [
             {type: {name: "fogo"}},
             {type: {name: "ar"}}
         ]},
-        {id: 6, name: "g", types: [
+        {id: 6, name: "gc", types: [
             {type: {name: "terra"}},
             {type: {name: "fogo"}}
         ]},
-        {id: 7, name: "h", types: [
+        {id: 7, name: "hc", types: [
             {type: {name: "agua"}},
             {type: {name: "ar"}}
         ]},
-        {id: 8, name: "i", types: [
+        {id: 8, name: "ic", types: [
             {type: {name: "terra"}},
             {type: {name: "ar"}}
         ]},
