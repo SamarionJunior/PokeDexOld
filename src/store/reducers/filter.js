@@ -52,8 +52,6 @@ export default function search(state = INITIAL_STATE, action){
 
         : itensOptioned
 
-        console.log(itensOrdered)
-
         return {
             ...state,
             currentItensFiltered: itensOrdered
