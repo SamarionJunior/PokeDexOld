@@ -8,13 +8,13 @@ import Slide from "./Slide";
 
 const Painel = ({pokemonSelected, pokemons, setItens}) => {
 
-    console.log(pokemons)
+    const options = pokemonSelected.types.map(type => type.type.name)
 
-    
+    console.log(options)
 
     useEffect(() => {
-        setItens(pokemons)
-    }, [])
+        setItens(pokemons, options, pokemonSelected)
+    }, [pokemons, options, pokemonSelected, setItens])
     
     return (
         <div>

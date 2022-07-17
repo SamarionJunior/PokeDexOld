@@ -1,6 +1,8 @@
-export function setItens(itens){
+export function setItens(itens, options, pokemonSelected){
     return {
         type: "SET_ITENS",
-        itens
+        itens,
+        options,
+        pokemonSelected
     }
 }

@@ -33,7 +33,10 @@ const INITIAL_STATE = {
             {type: {name: "ar"}}
         ]},
     ],
-    pokemonSelected: {id: 0, name: "a"},
+    pokemonSelected: {id: 8, name: "ic", types: [
+        {type: {name: "terra"}},
+        {type: {name: "ar"}}
+    ]}
 }
 
 export default INITIAL_STATE

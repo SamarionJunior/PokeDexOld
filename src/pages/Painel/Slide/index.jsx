@@ -1,11 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux"
 
-const Painel = ({itens}) => (
+import * as PokemonActions from "./../../../store/actions/pokemon"
+
+const Painel = ({itens, setSelectedPokemon}) => (
+    
     <div>
         <h1>Slide</h1>
         {itens?.map(item => (
-            <p key={item?.id}>{item?.name}</p>
+            <div key={item?.id}>
+                <p>{item?.name}</p>
+                <button onClick={() => setSelectedPokemon(item)}>Ver Mais</button>
+            </div>
         ))}
     </div>
 )
@@ -14,4 +21,7 @@ const mapStateToProps = state => (
     {itens: state.slide.itens}
 )
 
-export default connect(mapStateToProps)(Painel)
+const mapDispatchToProps = dispatch => bindActionCreators(PokemonActions, dispatch)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Painel)
