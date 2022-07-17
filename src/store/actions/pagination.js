@@ -5,10 +5,9 @@ export function setItens(itens){
     }
 }
 
-export function setItensPerPage(itens, itensPerPage){
+export function setItensPerPage(itensPerPage){
     return {
         type: "SET_ITENS_PER_PAGE",
-        itens,
         itensPerPage,
     }
 }
@@ -43,9 +42,10 @@ export function setEndIndex(endIndex){
     }
 }
 
-export function setCurrentItens(currentItens){
+export function setCurrentItens(itensPerPage, itens){
     return {
         type: "SET_CURRENT_ITENS",
-        currentItens
+        itens,
+        itensPerPage
     }
 }

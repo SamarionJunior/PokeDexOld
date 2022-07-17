@@ -8,22 +8,9 @@ export default function pagination(state = INITIAL_STATE, action){
         }
     }
     if(action.type === 'SET_ITENS_PER_PAGE'){
-        
-        const itensPerPage = action.itensPerPage
-        const currentPage = 0
-        const pages = Math.ceil(action.itens.length / action.itensPerPage)
-        const startIndex = currentPage * action.itensPerPage
-        const endIndex = startIndex + action.itensPerPage
-        const currentItens = action.itens.slice(startIndex, endIndex)
-
         return {
             ...state,
-            itensPerPage,
-            currentPage,
-            pages,
-            startIndex,
-            endIndex,
-            currentItens,
+            itensPerPage: action.itensPerPage,
         }
     }
     if(action.type === 'SET_CURRENT_PAGE'){
@@ -39,7 +26,6 @@ export default function pagination(state = INITIAL_STATE, action){
             startIndex,
             endIndex,
             currentItens,
-
         }
     }
     if(action.type === 'SET_PAGES'){
@@ -61,9 +47,24 @@ export default function pagination(state = INITIAL_STATE, action){
         }
     }
     if(action.type === 'SET_CURRENT_ITENS'){
+        
+        const itensPerPage = action.itensPerPage
+        const itens = action.itens
+        const currentPage = 0
+        const pages = Math.ceil(itens.length / itensPerPage)
+        const startIndex = currentPage * itensPerPage
+        const endIndex = startIndex + itensPerPage
+        const currentItens = itens.slice(startIndex, endIndex)
+
         return {
             ...state,
-            currentItens: action.currentItens
+            currentItens,
+            itensPerPage,
+            currentPage,
+            pages,
+            startIndex,
+            endIndex,
+            currentItens,
         }
     }
     return state
