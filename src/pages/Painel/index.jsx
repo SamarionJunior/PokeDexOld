@@ -10,8 +10,6 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
 
     console.log(pokemons)
 
-    
-
     useEffect(() => {
         setItens(pokemons)
     }, [])
