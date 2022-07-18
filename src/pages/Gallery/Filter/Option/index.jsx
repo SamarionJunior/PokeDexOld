@@ -8,9 +8,29 @@ import * as FilterActions from "../../../../store/actions/filter";
 
 const arrayOptions = ["terra", "agua", "fogo", "ar"]
 
-const Option = ({setOptions}) => {
+function setChecked(array, value){
+    return array.includes(value) ? true : false
+}
 
-    const [check, setCheck] = useState([])
+function generateNewCheck(oldCheck, e){
+    const value = e.target.value
+    if(oldCheck.includes(value)){
+        oldCheck.splice(
+            oldCheck.indexOf(value), 1
+        )
+    }else{
+        oldCheck.push(value)
+    }
+    return ([...oldCheck])
+}
+
+function capitalFirstLetter(word){
+    return word[0].toUpperCase() + word.substring(1)
+}
+
+const Option = ({options, setOptions}) => {
+
+    const [check, setCheck] = useState(options)
     
     useEffect(() => {
         setOptions(check)
@@ -21,26 +41,28 @@ const Option = ({setOptions}) => {
             <legend>Tipos</legend>
             {arrayOptions.map(itensOption => (
                 <div key={itensOption}>
-                    <input type="checkbox" id={itensOption} name={itensOption} value={itensOption} onChange={(e) => setCheck((oldCheck) => {
-                        if(oldCheck.includes(e.target.value)){
-                            oldCheck.splice(oldCheck.indexOf(e.target.value), 1)
-                            const newCheck = oldCheck
-                            return ([...newCheck])
-                        }else{
-                            oldCheck.push(e.target.value)
-                            const newCheck = oldCheck
-                            return ([...newCheck])
-                        }
-                    })}/>
-                    <label htmlFor={itensOption}>{itensOption[0].toUpperCase() + itensOption.substring(1)}</ label>
+                    <input type="checkbox" 
+                        id={itensOption} 
+                        name={itensOption} 
+                        value={itensOption} 
+                        checked={setChecked(check, itensOption)} 
+                        onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
+                    />
+                    <label htmlFor={itensOption}>
+                        {capitalFirstLetter(itensOption)}
+                    </ label>
                 </ div>
             ))}
         </ fieldset>
     )
 }
 
+const mapStateToProps = state => ({
+    options: state.filter.options
+})
+
 const mapDispatchToProps = dispatch => (
     bindActionCreators(FilterActions, dispatch)
 )
 
-export default connect(null, mapDispatchToProps)(Option)
+export default connect(mapStateToProps, mapDispatchToProps)(Option)

@@ -5,26 +5,24 @@ import { bindActionCreators } from "redux";
 
 import * as PaginationActions from "../../../store/actions/pagination";
 import * as FilterActions from "../../../store/actions/filter"
-import * as ListActions from "../../../store/actions/list"
 
 import Selector from "./Selector";
-import List from "./List";
 import Buttons from "./Buttons";
 
-const Pagination = ({pokemons, search, options, order, itensPerPage, currentItens, setCurrentItens, currentItensFiltered, setCurrentItensFiltered, setItens}) => {
+const Pagination = ({children, pokemons, itensPerPage, setCurrentItens, currentItensFiltered, sequence, pushLastItemInSequence}) => {
+    
     useEffect(() => {
-        setCurrentItensFiltered(search, options, order, pokemons)
-    }, [search, options, order, pokemons])
+        pushLastItemInSequence(sequence, pokemons.length !== 0 ? pokemons.length : null)
+    }, [pokemons])
+    
     useEffect(() => {
         setCurrentItens(itensPerPage, currentItensFiltered)
     }, [itensPerPage, currentItensFiltered])
-    useEffect(() => {
-        setItens(currentItens)
-    }, [currentItens])
+
     return (
         <div>
             <Selector></Selector>
-            <List></List>
+            {children}
             <Buttons></Buttons>
         </div>
     )
@@ -32,15 +30,12 @@ const Pagination = ({pokemons, search, options, order, itensPerPage, currentIten
 
 const mapStateToProps = state => ({
     pokemons: state.pokemon.pokemons,
-    search: state.filter.search,
-    options: state.filter.options,
-    order: state.filter.order,
     currentItensFiltered: state.filter.currentItensFiltered,
     itensPerPage: state.pagination.itensPerPage,
-    currentItens: state.pagination.currentItens,
+    sequence: state.pagination.sequence,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({...ListActions, ...FilterActions, ...PaginationActions}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({...FilterActions, ...PaginationActions}, dispatch)
     
     
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination)

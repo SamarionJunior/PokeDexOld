@@ -1,10 +1,11 @@
 const INITIAL_STATE = {
-    itensPerPage: 1,
+    itensPerPage: 5,
     currentPage: 0,
     pages: 0,
     startIndex: 0,
     endIndex: 0,
-    currentItens: []
+    currentItens: [],
+    sequence: [1, 5, 15, 45]
 }
 
 export default INITIAL_STATE

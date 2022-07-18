@@ -4,14 +4,18 @@ import { bindActionCreators } from "redux";
 
 import * as FilterActions from "../../../../store/actions/filter";
 
-const Search = ({setSearch}) => (
+const Search = ({search, setSearch}) => (
     <div>
-        <input onChange={(e) => setSearch(String(e.target.value))} type="text" placeholder="Digite o nome do Pokemon!"/>
+        <input value={search} onChange={(e) => setSearch(String(e.target.value))} type="text" placeholder="Digite o nome do Pokemon!"/>
     </div>
 )
+
+const mapStateToProps = state => ({
+    search: state.filter.search
+})
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators(FilterActions, dispatch)
 )
 
-export default connect(null, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(Search)

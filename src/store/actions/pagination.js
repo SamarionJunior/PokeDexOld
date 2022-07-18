@@ -49,3 +49,11 @@ export function setCurrentItens(itensPerPage, itens){
         itensPerPage
     }
 }
+
+export function pushLastItemInSequence(sequence, lastItem){
+    return {
+        type: "PUSH_LAST_ITEM_IN_SEQUENCE",
+        sequence,
+        lastItem
+    }
+}

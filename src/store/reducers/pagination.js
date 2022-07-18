@@ -64,7 +64,26 @@ export default function pagination(state = INITIAL_STATE, action){
             pages,
             startIndex,
             endIndex,
-            currentItens,
+        }
+    }
+    if(action.type === 'PUSH_LAST_ITEM_IN_SEQUENCE'){
+
+        const sequence = action.sequence.length !== 0 ? action.sequence : [5, 15, 45]
+        const lastItem = action.lastItem !== null ? action.lastItem : null
+
+        if(lastItem !== null && lastItem > 45){
+            if(sequence.length === 4){
+                sequence.push(lastItem)
+            }else if(sequence.length > 4){
+                sequence.pop()
+                sequence.push(lastItem)
+            }
+        }
+
+        state.sequence = sequence
+
+        return {
+            ...state
         }
     }
     return state

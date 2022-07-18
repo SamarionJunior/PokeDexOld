@@ -12,9 +12,9 @@ const selectors = [
     {title: "Nome Decrescente", isOrder: true, direction: "descending", property: "name"},
 ]
 
-const Order = ({setOrder}) => {
+const Order = ({order, setOrder}) => {
 
-    const [selected, setSelected] = useState({title: "", isOrder: false, direction: null, property: null})
+    const [selected, setSelected] = useState({...order})
 
     useEffect(() => {
         setOrder(selected)
@@ -41,11 +41,15 @@ const Order = ({setOrder}) => {
     )
 }
 
+const mapStateToProps = state => ({
+    order: state.filter.order
+})
+
 const mapDispatchToProps = dispatch => (
     bindActionCreators(FilterActions, dispatch)
 )
 
-export default connect(null, mapDispatchToProps)(Order)
+export default connect(mapStateToProps, mapDispatchToProps)(Order)
 
 
 
