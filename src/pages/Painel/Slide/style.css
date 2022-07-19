@@ -1,0 +1,29 @@
+.Slide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.Display{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+    width: calc(100vw - 6em);
+}
+.Scroll{
+    display: flex;
+    margin: 1em;
+    padding: 1em;
+    width: 100%;
+    overflow: auto;
+}
+.Button{
+    padding: 1em;
+}
+.Item{
+    padding: 1em;
+    margin: 1em;
+}
