@@ -1,29 +1,24 @@
 .Slide{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
 }
-.Display{
+.Slider{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1em;
-    padding: 1em;
-    width: calc(100vw - 6em);
+    width: 250px;
 }
 .Scroll{
     display: flex;
-    margin: 1em;
-    padding: 1em;
-    width: 100%;
-    overflow: auto;
-}
-.Button{
-    padding: 1em;
+    width: 200px;
+    overflow: hidden;
 }
 .Item{
-    padding: 1em;
-    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
+.Item>button,.Item>p{
+    display: flex;
+    width: 50px;
 }
