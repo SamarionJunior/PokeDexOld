@@ -19,7 +19,7 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
             <h1>Painel</h1>
             <h1>{pokemonSelected.name}</h1>
             <Slide></Slide>
-            <Link to="/gallery">Voltar</Link>
+            <Link to="/gallery">Ver Todos</Link>
         </div>
     )
 }
