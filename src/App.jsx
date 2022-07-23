@@ -1,12 +1,24 @@
 import React from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import * as PokemonActions from "./store/actions/pokemon"
+
+import { site } from "./api/constants";
+
+import {initPokemons} from "./model/Pokemon"
 
 import Painel from './pages/Painel'
 import Gallery from './pages/Gallery';
 import Home from "./pages/Home";
 
-export default function App() {
-
+const App = ({setPokemons}) => {
+  useEffect(() => {
+    const pokemons = initPokemons(site)
+    setPokemons(pokemons)
+  }, [])
   return (
     <div className="App">
       <Routes>
@@ -15,5 +27,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
-  );
+  )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(PokemonActions, dispatch)
+
+export default connect(null, mapDispatchToProps)(App)
