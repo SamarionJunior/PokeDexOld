@@ -22,7 +22,7 @@ export default function search(state = INITIAL_STATE, action){
         const itensOptioned = options.length !== 0 && itensSearched !== 0 ? itensSearched.filter(item => {
             return item.types.reduce((acc, type) => {
                 return options.reduce((acc, option) => {
-                    return (type.type.name === option) || acc
+                    return (type.type.name.toLowerCase() === option.toLowerCase()) || acc
                 }, false) || acc
             }, false)
         }) : itensSearched

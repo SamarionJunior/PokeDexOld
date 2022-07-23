@@ -6,7 +6,26 @@ import { bindActionCreators } from "redux";
 
 import * as FilterActions from "../../../../store/actions/filter";
 
-const arrayOptions = ["terra", "agua", "fogo", "ar"]
+const arrayOptions = [
+    "Grass",
+    "Fire",
+    "Water",
+    "Bug",
+    "Normal",
+    "Poison",
+    "Electric",
+    "Ground",
+    "Fighting",
+    "Psychic",
+    "Rock",
+    "Flying",
+    "Ghost",
+    "Ice",
+    "Dragon",
+    "Steel",
+    "Dark",
+    "Fairy"
+]
 
 function setChecked(array, value){
     return array.includes(value) ? true : false

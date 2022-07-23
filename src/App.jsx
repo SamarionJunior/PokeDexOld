@@ -16,8 +16,8 @@ import Home from "./pages/Home";
 
 const App = ({setPokemons}) => {
   useEffect(() => {
-    const pokemons = initPokemons(site)
-    setPokemons(pokemons)
+    const PokemonsPromise = initPokemons(site)
+    PokemonsPromise.then(PokemonsResolve => setPokemons(PokemonsResolve))
   }, [])
   return (
     <div className="App">
