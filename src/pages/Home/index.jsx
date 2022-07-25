@@ -1,5 +1,3 @@
-import "./style.css"
-
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -25,25 +23,21 @@ const Home = ({pokemons, setSelectedPokemon}) => {
         }
     }, [search])
     return (
-        <div>
-            <h1>Home</h1>
-            <div>
-                <input id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} type="text" placeholder="Digite o nome do Pokemon!"/>
+        <div className="grid grid-cols-12 gap-4 justify-center">
+            <h1 className="col-span-12 text-center">Home</h1>
+            <div className="col-span-12">
+                <input className="m-[1em]" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} type="text" placeholder="Digite o nome do Pokemon!"/>
                 <input type="submit" placeholder="Pesquisar"/>
             </div>
-            <div id="SearchBar" className="SearchBar">
+            <div id="SearchBar" className="col-span-12 overflow-auto">
                 {pokemonsFiltered.map(pokemonFiltered => (
-                    <Link 
-                        key={pokemonFiltered.id} 
-                        to="/painel"
-                        onClick={() => setSelectedPokemon(pokemonFiltered)}
-                    >
+                    <Link key={pokemonFiltered.id} to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
                         {pokemonFiltered.name}
                         <br/>
                     </Link>
                 ))}
             </div>
-            <Link to="/gallery">Ver Todos</Link>
+            <Link to="/gallery" className="col-span-12">Ver Todos</Link>
         </div>
     )
 }
