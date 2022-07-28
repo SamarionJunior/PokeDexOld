@@ -1,7 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css"
 
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -10,7 +10,7 @@ import * as PokemonActions from "./store/actions/pokemon"
 
 import { site } from "./api/constants";
 
-import {initPokemons} from "./model/Pokemon"
+import { initPokemons } from "./model/Pokemon"
 
 import Painel from './pages/Painel'
 import Gallery from './pages/Gallery';
