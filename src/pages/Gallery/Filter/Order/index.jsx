@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form';
+
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -22,7 +24,7 @@ const Order = ({order, setOrder}) => {
     
     return (
         <div>
-            <select value={selected.title} onChange={
+            <Form.Select aria-label="Default select example" value={selected.title} onChange={
                 (e) => {
                     const titleSelected = String(e.target.value)
                     if(titleSelected){
@@ -36,7 +38,7 @@ const Order = ({order, setOrder}) => {
                         {index.title}
                     </option>
                 )}
-            </select>
+            </Form.Select>
         </div>
     )
 }

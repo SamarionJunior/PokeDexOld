@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Card from "../Card";
+import CardPokemon from "../CardPokemon";
 
 const List = ({itens}) => (
     <div>
-        {itens.map(item => (<Card key={item.id} item={item}></Card>))}
+        {itens.map(item => (<CardPokemon key={item.id} item={item}></CardPokemon>))}
     </div>
 )
 

@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form';
+
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -60,16 +62,14 @@ const Option = ({options, setOptions}) => {
             <legend>Tipos</legend>
             {arrayOptions.map(itensOption => (
                 <div key={itensOption}>
-                    <input type="checkbox" 
-                        id={itensOption} 
-                        name={itensOption} 
+                    <Form.Check 
+                        type={"checkbox"}
+                        id={itensOption}name={itensOption} 
                         value={itensOption} 
                         checked={setChecked(check, itensOption)} 
                         onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
+                        label={capitalFirstLetter(itensOption)}
                     />
-                    <label htmlFor={itensOption}>
-                        {capitalFirstLetter(itensOption)}
-                    </ label>
                 </ div>
             ))}
         </ fieldset>
