@@ -1,3 +1,7 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import React from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -17,14 +21,30 @@ const Gallery = ({currentItens, setItens}) => {
     }, [currentItens])
 
     return (
-        <div>
-            <h1>Gallery</h1>
-            <Filter></Filter>
-            <Pagination>
-                <List></List>
-            </Pagination>
-            <Link to="/">Inicio</Link>
-        </div>
+        <Container>
+            <Row>
+                <Col lg={12}>
+                    <h1>Gallery</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <Filter></Filter>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <Pagination>
+                        <List></List>
+                    </Pagination>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <Link to="/">Inicio</Link>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
