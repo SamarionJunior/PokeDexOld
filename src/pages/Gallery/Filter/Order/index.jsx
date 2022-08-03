@@ -23,7 +23,7 @@ const Order = ({order, setOrder}) => {
     }, [selected])
     
     return (
-        <div>
+        <>
             <Form.Select aria-label="Default select example" value={selected.title} onChange={
                 (e) => {
                     const titleSelected = String(e.target.value)
@@ -39,7 +39,7 @@ const Order = ({order, setOrder}) => {
                     </option>
                 )}
             </Form.Select>
-        </div>
+        </>
     )
 }
 

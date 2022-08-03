@@ -1,5 +1,4 @@
 import Pagination from 'react-bootstrap/Pagination';
-import Button from 'react-bootstrap/Button';
 
 import React from "react";
 import { connect } from "react-redux";

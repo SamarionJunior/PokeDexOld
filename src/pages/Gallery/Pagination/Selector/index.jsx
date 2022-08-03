@@ -17,7 +17,7 @@ const Selector = ({sequence, itensPerPage, setItensPerPage}) => {
     }, [sequence])
 
     return (
-        <div>
+        <>
             <Form.Select aria-label="Default select example" value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
                 {options.map(index => 
                     <option key={index} value={index}>
@@ -25,7 +25,7 @@ const Selector = ({sequence, itensPerPage, setItensPerPage}) => {
                     </option>
                 )}
             </Form.Select>
-        </div>
+        </>
     )
 }
 

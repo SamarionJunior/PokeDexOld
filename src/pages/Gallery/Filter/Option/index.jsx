@@ -58,21 +58,20 @@ const Option = ({options, setOptions}) => {
     }, [check])
 
     return (
-        <fieldset>
+        <>
             <legend>Tipos</legend>
             {arrayOptions.map(itensOption => (
-                <div key={itensOption}>
-                    <Form.Check 
-                        type={"checkbox"}
-                        id={itensOption}name={itensOption} 
-                        value={itensOption} 
-                        checked={setChecked(check, itensOption)} 
-                        onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
-                        label={capitalFirstLetter(itensOption)}
-                    />
-                </ div>
+                <Form.Check 
+                    key={itensOption}
+                    type={"checkbox"}
+                    id={itensOption}name={itensOption} 
+                    value={itensOption} 
+                    checked={setChecked(check, itensOption)} 
+                    onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
+                    label={capitalFirstLetter(itensOption)}
+                />
             ))}
-        </ fieldset>
+        </>
     )
 }
 

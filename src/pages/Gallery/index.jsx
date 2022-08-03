@@ -13,12 +13,13 @@ import * as ListActions from "../../store/actions/list"
 import Pagination from "./Pagination";
 import Filter from "./Filter";
 import List from "../../components/List";
+import Toggle from '../../components/Toggle';
 
 const Gallery = ({currentItens, setItens}) => {
-
+    
     useEffect(() => {
         setItens(currentItens)
-    }, [currentItens])
+    }, [currentItens]) // eslint-disable-next-line
 
     return (
         <Container>
@@ -29,18 +30,18 @@ const Gallery = ({currentItens, setItens}) => {
             </Row>
             <Row>
                 <Col lg={12}>
-                    <Filter></Filter>
+                    <Toggle>
+                        <Filter></Filter>
+                    </Toggle>
                 </Col>
             </Row>
             <Row>
-                <Col lg={12}>
-                    <Pagination>
-                        <List></List>
-                    </Pagination>
-                </Col>
+                <Pagination>
+                    <List></List>
+                </Pagination>
             </Row>
             <Row>
-                <Col lg={12}>
+                <Col lg={12} className="text-center">
                     <Link to="/">Inicio</Link>
                 </Col>
             </Row>

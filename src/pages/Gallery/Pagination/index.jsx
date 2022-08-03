@@ -20,11 +20,11 @@ const Pagination = ({children, pokemons, itensPerPage, setCurrentItens, currentI
     }, [itensPerPage, currentItensFiltered])
 
     return (
-        <div>
+        <>
             <Selector></Selector>
             {children}
             <Buttons></Buttons>
-        </div>
+        </>
     )
 }
 

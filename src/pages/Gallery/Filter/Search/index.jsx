@@ -7,9 +7,9 @@ import { bindActionCreators } from "redux";
 import * as FilterActions from "../../../../store/actions/filter";
 
 const Search = ({search, setSearch}) => (
-    <div>
+    <>
         <Form.Control value={search} onChange={(e) => setSearch(String(e.target.value))} type="text" placeholder="Digite o nome do Pokemon!"/>
-    </div>
+    </>
 )
 
 const mapStateToProps = state => ({
