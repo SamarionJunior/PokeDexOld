@@ -1,4 +1,4 @@
-import Form from 'react-bootstrap/Form';
+
 
 import React from "react";
 import { useState } from "react";
@@ -18,13 +18,13 @@ const Selector = ({sequence, itensPerPage, setItensPerPage}) => {
 
     return (
         <>
-            <Form.Select aria-label="Default select example" value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
+            <form aria-label="Default select example" value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
                 {options.map(index => 
                     <option key={index} value={index}>
                         {index}
                     </option>
                 )}
-            </Form.Select>
+            </form>
         </>
     )
 }

@@ -1,9 +1,4 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
+
 
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
@@ -15,11 +10,11 @@ import * as PokemonActions from "../../store/actions/pokemon"
 const Home = ({pokemons, setSelectedPokemon}) => {
     const [search, setSearch] = useState("")
     const [pokemonsFiltered, setPokemonsFiltered] = useState([])
-    // useEffect(() => {
-        // const SearchPokemon = document.getElementById("SearchPokemon")
-        // const SearchBar = document.getElementById("SearchBar")
-        // SearchBar.style.width = SearchPokemon.getBoundingClientRect().width+"px"
-    // })
+    useEffect(() => {
+        const SearchPokemon = document.getElementById("SearchPokemon")
+        const SearchBar = document.getElementById("SearchBar")
+        SearchBar.style.width = SearchPokemon.getBoundingClientRect().width+"px"
+    })
     useEffect(() => {
         if(search !== ""){
             setPokemonsFiltered(pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(search)))
@@ -28,43 +23,19 @@ const Home = ({pokemons, setSelectedPokemon}) => {
         }
     }, [search])
     return (
-        <Container>
-          <Row>
-            <Col lg={12}>
-                <h1 className='text-center'>HOME</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-                <Form>
-                    <Row>
-                        <Col>
-                            <Form.Control type="text" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
-                            <ListGroup variant="flush">
-                                {pokemonsFiltered.map(pokemonFiltered => (
-                                    <ListGroup.Item key={pokemonFiltered.id}>
-                                        <Link  to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
-                                            {pokemonFiltered.name}
-                                        </Link>
-                                    </ListGroup.Item>
-                                ))}
-                            </ListGroup>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Button variant="primary">Pesquisar</Button>
-                        </Col>
-                    </Row>
-                </Form>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-                <Link to="/gallery">Ver Todos</Link>
-            </Col>
-          </Row>
-        </Container>
+        <>
+            <h1>HOME</h1>
+            <input type="text" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
+            <div id="SearchBar">
+                {pokemonsFiltered.map(pokemonFiltered => (
+                    <Link key={pokemonFiltered.id}  to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
+                        {pokemonFiltered.name}
+                    </Link>
+                ))}
+            </div>
+            <button>Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
+            <Link to="/gallery">Ver Todos</Link>
+        </>
     )
 }
 

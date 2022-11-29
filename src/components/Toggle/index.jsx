@@ -1,16 +1,12 @@
-import Accordion from 'react-bootstrap/Accordion';
+
 
 import React from "react";
 
-const Toggle = props => (
-    <Accordion alwaysOpen>
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Filtros</Accordion.Header>
-        <Accordion.Body>
-            {props.children}
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
+const Toggle = ({title, children}) => (
+  <>
+    <h1>{title}</h1>
+    {children}
+  </>
 )
 
 export default Toggle;

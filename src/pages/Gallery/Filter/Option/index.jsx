@@ -1,4 +1,3 @@
-import Form from 'react-bootstrap/Form';
 
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -61,7 +60,7 @@ const Option = ({options, setOptions}) => {
         <>
             <legend>Tipos</legend>
             {arrayOptions.map(itensOption => (
-                <Form.Check 
+                <input
                     key={itensOption}
                     type={"checkbox"}
                     id={itensOption}name={itensOption} 

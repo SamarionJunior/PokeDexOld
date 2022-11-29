@@ -1,7 +1,3 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-
 import "./style.css"
 
 import React from "react";
@@ -21,24 +17,16 @@ const slideRight = () => {
 
 const Slide = ({itens}) => (
     <>
-        <Row>
-            <Col>
-                <h1>Slide</h1>
-            </Col>
-        </Row>
-        <Row>
-            <Col lg={12}>
-                <div style={{display: "flex"}}>
-                    <Button onClick={slideLeft} style={{minWidth: "100px"}}>&lt;</Button>
-                    <div id="Scroll" className="Scroll" style={{overflow: "auto", display: "flex"}}>
-                        {itens?.map(item => (
-                            <CardPokemon key={item.id} item={item} style={{minWidth: "200px"}}></CardPokemon>
-                        ))}
-                    </div>
-                    <Button onClick={slideRight} style={{minWidth: "100px"}}>&gt;</Button>
-                </div>
-            </Col>
-        </Row>
+        <h1>Slide</h1>
+        <div style={{display: "flex"}}>
+            <button onClick={slideLeft} style={{minWidth: "100px"}}>&lt;</button>
+            <div id="Scroll" className="Scroll" style={{overflow: "auto", display: "flex"}}>
+                {itens?.map(item => (
+                    <CardPokemon key={item.id} item={item} style={{minWidth: "200px"}}></CardPokemon>
+                ))}
+            </div>
+            <button onClick={slideRight} style={{minWidth: "100px"}}>&gt;</button>
+        </div>
     </>
 )
 

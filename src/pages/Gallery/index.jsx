@@ -1,6 +1,4 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 
 import React from "react";
 import { useEffect } from "react";
@@ -22,30 +20,16 @@ const Gallery = ({currentItens, setItens}) => {
     }, [currentItens]) // eslint-disable-next-line
 
     return (
-        <Container>
-            <Row>
-                <Col lg={12}>
-                    <h1>Gallery</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col lg={12}>
-                    <Toggle>
-                        <Filter></Filter>
-                    </Toggle>
-                </Col>
-            </Row>
-            <Row>
-                <Pagination>
-                    <List></List>
-                </Pagination>
-            </Row>
-            <Row>
-                <Col lg={12} className="text-center">
-                    <Link to="/">Inicio</Link>
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <h1>Gallery</h1>
+            <Toggle>
+                <Filter></Filter>
+            </Toggle>
+            <Pagination>
+                <List></List>
+            </Pagination>
+            <Link to="/">Inicio</Link>
+        </>
     )
 }
 
