@@ -25,15 +25,17 @@ const Home = ({pokemons, setSelectedPokemon}) => {
     return (
         <>
             <h1>HOME</h1>
-            <input type="text" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
-            <div id="SearchBar">
+            <div>
+                <input type="text" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
+                <button>Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
+            </div>
+            <div id="SearchBar" style={{overflow:"auto", maxHeight:"150px"}}>
                 {pokemonsFiltered.map(pokemonFiltered => (
                     <Link key={pokemonFiltered.id}  to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
-                        {pokemonFiltered.name}
+                        {pokemonFiltered.name} <br/>
                     </Link>
                 ))}
             </div>
-            <button>Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
             <Link to="/gallery">Ver Todos</Link>
         </>
     )
