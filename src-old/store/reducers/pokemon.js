@@ -1,13 +1,16 @@
-const INITIAL_STATE = {
-    test: {},
-    information: {},
-}
+import INITIAL_STATE from "../states/pokemon"
 
 export default function pokemon(state = INITIAL_STATE, action){
-    if(action.type === 'SET_INFORMATION'){
-        // console.log(action.lesson, action.module)
+    if(action.type === 'SET_POKEMONS'){
         return {
-            information: action.information
+            ...state,
+            pokemons: action.pokemons
+        }
+    }
+    if(action.type === 'SET_SELECTED_POKEMON'){
+        return {
+            ...state,
+            pokemonSelected: action.pokemonSelected
         }
     }
     return state

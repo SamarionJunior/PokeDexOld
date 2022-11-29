@@ -1,45 +1,37 @@
-import './styles/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./style.css"
 
 import React, { useEffect } from "react";
-import { Routes, Route/*, Link*/ } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import {limit, site} from "./api/constants";
-import Pokemons from './model/pokemons'
+import * as PokemonActions from "./store/actions/pokemon"
 
-import PaginationConstant from './components/pagination/PaginationConstant';
+import { site } from "./api/constants";
 
-import Painel from './components/presentation/Painel'
+import { initPokemons } from "./model/Pokemon"
 
-import Home from './pages/Home';
+import Painel from './pages/Painel'
+import Gallery from './pages/Gallery';
+import Home from "./pages/Home";
 
-import { useState } from 'react';
-
-import { Provider } from "react-redux";
-import store from "./store";
-
-export default function App() {
-
-  const {pokemons, initPokemons} = Pokemons()
-
-  const {itensPerPage, setItensPerPage, setCurrentPage, pages, currentItens} = PaginationConstant(pokemons)
-
+const App = ({setPokemons}) => {
   useEffect(() => {
-    initPokemons(site)
-  }, [site])
-
-  useEffect(()=>{
-    setCurrentPage(0)
-  }, [itensPerPage])
-
+    const PokemonsPromise = initPokemons(site)
+    PokemonsPromise.then(PokemonsResolve => setPokemons(PokemonsResolve))
+  }, [])
   return (
     <div className="App">
-      <Provider store={store}>
-        <Routes>
-          {/* <Route path="painel" element={<Painel selectedItem={selectedItem}/>} /> */}
-          <Route path="/" element={<Home itensPerPage={itensPerPage} setItensPerPage={setItensPerPage} limit={limit} setCurrentPage={setCurrentPage} pages={pages} currentItens={currentItens}/>} />
-        </Routes>
-      </Provider>
-      {/* {pokemons && pokemons.length === limit?console.log(pokemons.length,pokemons):null} */}
+      <Routes>
+        <Route path="painel" element={<Painel />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
-  );
+  )
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(PokemonActions, dispatch)
+
+export default connect(null, mapDispatchToProps)(App)
