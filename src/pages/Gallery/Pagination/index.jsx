@@ -1,4 +1,4 @@
-
+import "./style.css"
 
 import React from "react";
 import { useEffect } from "react";
@@ -22,11 +22,11 @@ const Pagination = ({children, pokemons, itensPerPage, setCurrentItens, currentI
     }, [itensPerPage, currentItensFiltered])
 
     return (
-        <>
+        <div className="Pagination">
             <Selector></Selector>
             {children}
             <Buttons></Buttons>
-        </>
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-
+import "./style.css"
 
 import React from "react";
 import { useEffect } from "react";
@@ -20,16 +20,16 @@ const Gallery = ({currentItens, setItens}) => {
     }, [currentItens]) // eslint-disable-next-line
 
     return (
-        <>
+        <div className="Gallery">
             <h1>Gallery</h1>
             <Toggle>
                 <Filter></Filter>
             </Toggle>
-            <Pagination>
+            <Pagination className="Full">
                 <List></List>
             </Pagination>
             <Link to="/">Inicio</Link>
-        </>
+        </div>
     )
 }
 

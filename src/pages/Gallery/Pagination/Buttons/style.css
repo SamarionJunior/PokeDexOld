@@ -1,0 +1,15 @@
+.Buttons{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.Button{
+    min-width: 3em;
+    min-height: 3em;
+    margin: 0.25em;
+    padding: 0.25em;
+    font-size: 0.75em;
+}

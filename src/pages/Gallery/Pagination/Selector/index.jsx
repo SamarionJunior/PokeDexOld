@@ -17,15 +17,13 @@ const Selector = ({sequence, itensPerPage, setItensPerPage}) => {
     }, [sequence])
 
     return (
-        <>
-            <form aria-label="Default select example" value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
-                {options.map(index => 
-                    <option key={index} value={index}>
-                        {index}
-                    </option>
-                )}
-            </form>
-        </>
+        <select value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
+            {options.map(index => 
+                <option key={index} value={index}>
+                    {index}
+                </option>
+            )}
+        </select>
     )
 }
 
