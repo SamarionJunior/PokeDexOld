@@ -9,7 +9,7 @@ import * as PokemonActions from "../../store/actions/pokemon"
 
 const CardPokemon = ({style, item, setSelectedPokemon}) => (
     <div className="CardPokemon">
-        <img src={item.sprites.front_default}/>
+        {item.sprites.front_default ? <img src={item.sprites.front_default}/> : <img src={item.sprites.other["official-artwork"].front_default}/>}
         <h1 style={{"fontSize": "1em"}}>{item.name}</h1>
         {item.types.map(array => (
             <div key={array.type.name} action>

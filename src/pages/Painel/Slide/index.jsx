@@ -22,7 +22,7 @@ const Slide = ({itens}) => (
             <button onClick={slideLeft} style={{minWidth: "100px"}}>&lt;</button>
             <div id="Scroll" className="Scroll" style={{overflow: "auto", display: "flex"}}>
                 {itens?.map(item => (
-                    <CardPokemon key={item.id} item={item} style={{minWidth: "200px"}}></CardPokemon>
+                    <CardPokemon key={item.id} item={item} style={{minWidth: "300px"}}></CardPokemon>
                 ))}
             </div>
             <button onClick={slideRight} style={{minWidth: "100px"}}>&gt;</button>
