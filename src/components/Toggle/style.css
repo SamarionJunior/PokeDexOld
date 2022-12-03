@@ -1,11 +1,19 @@
 .Toggle{
     width: 100%;
-    display: "flex";
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     border: black 1px solid;
     padding: 0.25em;
     margin: 0.25em;
+}
+.ToggleContent{
+    flex-grow: 1;
+}
+.ToggleButton{
+    padding: 0.25em;
+    margin: 0.25em;
+    height: 2em;
 }

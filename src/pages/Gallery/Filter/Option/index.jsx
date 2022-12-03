@@ -1,3 +1,4 @@
+import "./style.css";
 
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -57,20 +58,25 @@ const Option = ({options, setOptions}) => {
     }, [check])
 
     return (
-        <>
+        <div className="Option">
             <legend>Tipos</legend>
-            {arrayOptions.map(itensOption => (
-                <input
-                    key={itensOption}
-                    type={"checkbox"}
-                    id={itensOption}name={itensOption} 
-                    value={itensOption} 
-                    checked={setChecked(check, itensOption)} 
-                    onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
-                    label={capitalFirstLetter(itensOption)}
-                />
-            ))}
-        </>
+            <div className="Inputs">
+                {arrayOptions.map(itensOption => (
+                    <div key={itensOption}>
+                        <input
+                            type={"checkbox"}
+                            id={itensOption}
+                            name={itensOption} 
+                            value={itensOption} 
+                            checked={setChecked(check, itensOption)} 
+                            onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
+                            label={capitalFirstLetter(itensOption)}
+                        />
+                        <label className="Labels" for={itensOption}>{itensOption}</label>
+                    </div>
+                ))}
+            </div>
+        </div>
     )
 }
 

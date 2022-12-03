@@ -1,0 +1,14 @@
+.Option{
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.Inputs{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 6em;
+}
+.Labels{
+    margin: 0.25em;
+    padding: 0.25em;
+}

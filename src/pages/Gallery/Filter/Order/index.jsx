@@ -1,3 +1,4 @@
+import "./style.css";
 
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
@@ -22,23 +23,21 @@ const Order = ({order, setOrder}) => {
     }, [selected])
     
     return (
-        <>
-            <select aria-label="Default select example" value={selected.title} onChange={
-                (e) => {
-                    const titleSelected = String(e.target.value)
-                    if(titleSelected){
-                        const selectorFiltered = selectors.filter(selector => selector.title === titleSelected)[0]
-                        setSelected(selectorFiltered)
-                    }
+        <select className="Order" aria-label="Default select example" value={selected.title} onChange={
+            (e) => {
+                const titleSelected = String(e.target.value)
+                if(titleSelected){
+                    const selectorFiltered = selectors.filter(selector => selector.title === titleSelected)[0]
+                    setSelected(selectorFiltered)
                 }
-            }>
-                {selectors.map(index => 
-                    <option key={index.title} value={index.title} >
-                        {index.title}
-                    </option>
-                )}
-            </select>
-        </>
+            }
+        }>
+            {selectors.map(index => 
+                <option key={index.title} value={index.title} >
+                    {index.title}
+                </option>
+            )}
+        </select>
     )
 }
 
