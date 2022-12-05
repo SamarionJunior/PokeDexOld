@@ -1,3 +1,26 @@
+.Slide{
+    border: solid 1px black;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.Slider{
+    border: solid 1px black;
+    display: flex;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.SliderButton{
+    min-width: 100px;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+.SliderScroll{
+    border: solid 1px black;
+    overflow: auto;
+    display: flex;
+    margin: 0.25em;
+    padding: 0.25em;
+}
 /* .Slide{
     display: flex;
     flex-direction: column;

@@ -24,7 +24,7 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
         <>
             <h1>Painel</h1>
             <h3>{pokemonSelected?.name}</h3>
-            <img src={pokemonSelected?.sprites?.front_default} alt="pokemonSelected.sprites.front_default" />
+            {pokemonSelected.sprites.front_default ? <img src={pokemonSelected.sprites.front_default}/> : <img src={pokemonSelected.sprites.other["official-artwork"].front_default} alt="pokemonSelected.sprites.front_default"/>}
             {pokemonSelected?.types?.map(array => (
                 <div key={`${pokemonSelected?.id} - ${array.type.name}`}>
                     {array.type.name}

@@ -5,3 +5,7 @@
     margin: 0.25em;
     padding: 0.25em;
 }
+img{
+    max-width: 96px;
+    max-height: 96px;
+}

@@ -6,28 +6,31 @@ import { connect } from "react-redux";
 import CardPokemon from '../../../components/CardPokemon';
 
 const slideLeft = () => {
-    const slider = document.getElementById("Scroll")
-    slider.scrollLeft = slider.scrollLeft - 100
+    const Scroll = document.getElementById("Scroll")
+    var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
+    Scroll.scrollLeft = Scroll.scrollLeft - 200 - parseFloat(style.marginLeft.slice(0, -2)) * 2
 }
 
 const slideRight = () => {
-    const slider = document.getElementById("Scroll")
-    slider.scrollLeft = slider.scrollLeft + 100
+    const Scroll = document.getElementById("Scroll")
+    var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
+    console.log(style.marginLeft)
+    Scroll.scrollLeft = Scroll.scrollLeft + 200 + parseFloat(style.marginLeft.slice(0, -2)) * 2
 }
 
 const Slide = ({itens}) => (
-    <>
+    <div className="Slide">
         <h1>Slide</h1>
-        <div style={{display: "flex"}}>
-            <button onClick={slideLeft} style={{minWidth: "100px"}}>&lt;</button>
-            <div id="Scroll" className="Scroll" style={{overflow: "auto", display: "flex"}}>
+        <div className="Slider">
+            <button onClick={slideLeft} className="SliderButton Prev">&lt;</button>
+            <div id="Scroll" className="SliderScroll">
                 {itens?.map(item => (
-                    <CardPokemon key={item.id} item={item} style={{minWidth: "300px"}}></CardPokemon>
+                    <CardPokemon key={item.id} item={item}></CardPokemon>
                 ))}
             </div>
-            <button onClick={slideRight} style={{minWidth: "100px"}}>&gt;</button>
+            <button onClick={slideRight} className="SliderButton Next">&gt;</button>
         </div>
-    </>
+    </div>
 )
 
 const mapStateToProps = state => (
