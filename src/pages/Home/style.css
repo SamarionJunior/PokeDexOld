@@ -1,0 +1,146 @@
+
+/* 080f0f
+fff9fb
+f63e02 */
+
+/* /// */
+
+.Home{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0.25em;
+    background-color: #f63e02;
+}
+
+/* ////// */
+
+.Content{
+    min-width: calc(300px + 6em);
+    min-height: calc(150px + 6em);
+    max-width: calc(600px + 6em);
+    max-height: calc(300px + 6em);
+    width: calc(100% - 6em);
+    height: calc(100% - 6em);
+    margin: 3em;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ///////// */
+
+.Title{
+    font-size: 3em;
+    font-weight: bolder;
+    color: #fff9fb;
+}
+
+/* ///////// */
+
+.Searchbar{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* //////////// */
+
+.SearchSuggestions{
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* /////////////// */
+
+.SearchInput{
+    width: 100%;
+    font-size: 1.5em;
+    padding: 0.5em;
+    font-weight: bolder;
+    color: #080f0f;
+    background-color: #fff9fb;
+    border: none;
+    outline: none;
+}
+.SearchInput:focus{
+    border: none;
+    outline: none;
+}
+
+/* /////////////// */
+
+.DataList{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    max-height: 150px;
+    overflow: auto;
+    background-color: #fff9fb;
+    margin: 0;
+    padding: 0;
+}
+
+/* ////////////////// */
+
+.SearchItems{
+    padding: 0.25em;
+    z-index: 999;
+    font-size: 1.5em;
+    color: #080f0f;
+    font-weight: bolder;
+    background-color: #fff9fb;
+    text-decoration: none;
+    outline: none;
+}
+.SearchItems:hover{
+    color: #fff9fb;
+    background-color: #080f0f;
+}
+
+/* //////////// */
+
+.SearchButton{
+    font-size: 1.25em;
+    padding: 0.5em 1em;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: #080f0f;
+    background-color: #fff9fb;
+}
+
+.SearchButton:hover{
+    color: #fff9fb;
+    background-color: #080f0f;
+}
+
+/* ///////// */
+
+.GalleryLink{
+    font-size: 1em;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: #080f0f;
+    font-weight: bolder;
+    padding: 1em 3em;
+    background-color: #fff9fb;
+}
+
+.GalleryLink:hover{
+    color: #fff9fb;
+    background-color: #080f0f;
+}

@@ -1,4 +1,4 @@
-
+import "./style.css"
 
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
@@ -11,9 +11,18 @@ const Home = ({pokemons, setSelectedPokemon}) => {
     const [search, setSearch] = useState("")
     const [pokemonsFiltered, setPokemonsFiltered] = useState([])
     useEffect(() => {
-        const SearchPokemon = document.getElementById("SearchPokemon")
-        const SearchBar = document.getElementById("SearchBar")
-        SearchBar.style.width = SearchPokemon.getBoundingClientRect().width+"px"
+        const SearchInput = document.getElementById("SearchInput")
+        const DataList = document.getElementById("DataList")
+        // const DataList = document.getElementById("DataList")
+        
+        const style = DataList.currentStyle || window.getComputedStyle(DataList);
+        if(pokemonsFiltered.length !== 0){
+            DataList.style.display = "flex"
+        }else{
+            DataList.style.display = "none"
+        }
+
+        DataList.style.width = SearchInput.getBoundingClientRect().width + "px"
     })
     useEffect(() => {
         if(search !== ""){
@@ -23,21 +32,25 @@ const Home = ({pokemons, setSelectedPokemon}) => {
         }
     }, [search])
     return (
-        <>
-            <h1>HOME</h1>
-            <div>
-                <input type="text" id="SearchPokemon" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
-                <button>Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
+        <div id="Home" className="Home">
+            <div className="Content">
+                <h1 id="Title" className="Title">HOME</h1>
+                <div id="Searchbar" className="Searchbar">
+                    <dir id="SearchSuggestions" className="SearchSuggestions">
+                        <input id="SearchInput" className="SearchInput" type="text" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
+                        <div id="DataList" className="DataList">
+                            {pokemonsFiltered.map(pokemonFiltered => (
+                                <Link key={pokemonFiltered.id} className="SearchItems" to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
+                                    {pokemonFiltered.name} <br/>
+                                </Link>
+                            ))}
+                        </div>
+                    </dir>
+                    <button id="SearchButton" className="SearchButton">Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
+                </div>
+                <Link className="GalleryLink" to="/gallery">Ver Todos</Link>
             </div>
-            <div id="SearchBar" style={{overflow:"auto", maxHeight:"150px"}}>
-                {pokemonsFiltered.map(pokemonFiltered => (
-                    <Link key={pokemonFiltered.id}  to="/painel" onClick={() => setSelectedPokemon(pokemonFiltered)}>
-                        {pokemonFiltered.name} <br/>
-                    </Link>
-                ))}
-            </div>
-            <Link to="/gallery">Ver Todos</Link>
-        </>
+        </div>
     )
 }
 
