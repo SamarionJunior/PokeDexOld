@@ -1,19 +1,30 @@
 .Toggle{
-    width: 100%;
+    width: calc(100% - 0.5em);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
-    border: black 1px solid;
     padding: 0.25em;
     margin: 0.25em;
 }
+
+.ToggleButton{
+    font-size: 1em;
+    border: none;
+    color: #080f0f;
+    font-weight: bolder;
+    padding: 1em;
+    background-color: #fff9fb;
+    font-family: "Space Mono Regular";
+    letter-spacing: 0.1em;
+}
+
+.ToggleButton:hover{
+    color: #fff9fb;
+    background-color: #080f0f;
+}
+
 .ToggleContent{
     flex-grow: 1;
-}
-.ToggleButton{
-    padding: 0.25em;
-    margin: 0.25em;
-    height: 2em;
 }

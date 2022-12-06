@@ -1,5 +1,12 @@
 .Search{
-    margin: 0.25em;
-    padding: 0.25em;
-    height: 2em;
+    width: calc(50% - 2em);
+    padding: 1em;
+    margin: 0 1em;
+    font-size: 1.25em;
+    letter-spacing: 0.1em;
+    border: none;
+    font-family: Space;
+    background-color: #fff9fb;
+    font-family: "Space Mono Regular";
+    font-weight: bolder;
 }

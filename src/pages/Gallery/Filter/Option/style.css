@@ -1,14 +1,29 @@
 .Option{
-    margin: 0.25em;
-    padding: 0.25em;
+    width: calc(100% - 3em);
+    background-color: #fff9fb;
+    margin: 1em;
 }
+/* .Legend{
+    margin: 1em;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
+    text-transform: uppercase;
+} */
 .Inputs{
+    padding: 2em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     overflow: auto;
-    height: 6em;
+    max-height: 200px;
+}
+.CheckBox{
+    min-width: 1em;
+    min-height: 1em;
 }
 .Labels{
+    font-size: 1.5em;
     margin: 0.25em;
     padding: 0.25em;
 }

@@ -23,7 +23,7 @@ const Order = ({order, setOrder}) => {
     }, [selected])
     
     return (
-        <select className="Order" aria-label="Default select example" value={selected.title} onChange={
+        <select className="Order BoxShadow" aria-label="Default select example" value={selected.title} onChange={
             (e) => {
                 const titleSelected = String(e.target.value)
                 if(titleSelected){

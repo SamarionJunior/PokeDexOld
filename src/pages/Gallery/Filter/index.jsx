@@ -20,8 +20,8 @@ const Filter = ({search, options, order, pokemons, setCurrentItensFiltered}) => 
     return (
         <div className="Filter">
             <Search></Search>
-            <Option></Option>
             <Order></Order>
+            <Option></Option>
         </div>
     )
 }

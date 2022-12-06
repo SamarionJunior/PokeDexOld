@@ -1,5 +1,23 @@
 .Order{
-    height: 2em;
-    margin: 0.25em;
-    padding: 0.25em;
+    width: calc(50% - 2em);
+    padding: 1em;
+    margin: 0 1em;
+    font-size: 1.25em;
+    letter-spacing: 0.1em;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    font-family: Space;
+    background-color: #fff9fb;
+    font-family: "Space Mono Regular";
+}
+
+.Order>option{
+    padding: 1em;
+    margin: 0 1em;
+    font-size: 1.25em;
+    letter-spacing: 0.1em;
+    font-family: Space;
+    background-color: #fff9fb;
+    font-family: "Space Mono Regular";
 }

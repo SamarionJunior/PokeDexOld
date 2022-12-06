@@ -18,7 +18,7 @@ const alternating = () => {
 
 const Toggle = props => (
   <div className="Toggle">
-    <button className="ToggleButton" id="ToggleButton" onClick={alternating}>
+    <button className="ToggleButton BoxShadow" id="ToggleButton" onClick={alternating}>
       Close
     </button>
     <div className="ToggleContent" id="ToggleContent">

@@ -45,7 +45,7 @@ const Home = ({pokemons, setSelectedPokemon}) => {
         <div id="Home" className="Home">
             <div className="Content">
                 <h1 id="Title" className="Title TextShadow">POKEDEX</h1>
-                <div id="Searchbar" className="Searchbar card-1">
+                <div id="Searchbar" className="Searchbar BoxShadow">
                     <dir id="SearchSuggestions" className="SearchSuggestions">
                         <input  onBlur={Blur} onFocus={Focus} autoComplete="off" id="SearchInput" className="SearchInput" type="text" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>
                         <div id="DataList" className="DataList">
@@ -62,7 +62,7 @@ const Home = ({pokemons, setSelectedPokemon}) => {
                     </dir>
                     <button id="SearchButton" className="SearchButton">Pesquisar</button> {/*FALTA ESSA FUNÇÃO*/}
                 </div>
-                <Link className="GalleryLink card-1" to="/gallery">Ver Todos</Link>
+                <Link className="GalleryLink BoxShadow" to="/gallery">Ver Todos</Link>
             </div>
         </div>
     )

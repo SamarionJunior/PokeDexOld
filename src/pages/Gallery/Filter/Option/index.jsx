@@ -58,14 +58,15 @@ const Option = ({options, setOptions}) => {
     }, [check])
 
     return (
-        <div className="Option">
-            <legend>Tipos</legend>
+        <div className="Option BoxShadow">
+            {/* <legend className="Legend">Tipos</legend> */}
             <div className="Inputs">
                 {arrayOptions.map(itensOption => (
                     <div key={itensOption}>
                         <input
                             type={"checkbox"}
                             id={itensOption}
+                            className="CheckBox"
                             name={itensOption} 
                             value={itensOption} 
                             checked={setChecked(check, itensOption)} 

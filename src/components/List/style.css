@@ -1,5 +1,5 @@
 .List{
-    width: 100%;
+    width: calc(100% - 1em);
     height: 800px;
     border: 1px solid black;
     margin: 0.25em;

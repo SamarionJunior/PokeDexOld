@@ -1,3 +1,4 @@
+import "../../style.css"
 import "./style.css"
 
 import React from "react";
@@ -21,14 +22,14 @@ const Gallery = ({currentItens, setItens}) => {
 
     return (
         <div className="Gallery">
-            <h1>Gallery</h1>
+            <h1 className="Title TextShadow">Gallery</h1>
             <Toggle>
                 <Filter></Filter>
             </Toggle>
-            <Pagination className="Full">
+            {/* <Pagination className="Full">
                 <List></List>
-            </Pagination>
-            <Link to="/">Inicio</Link>
+            </Pagination> */}
+            <Link to="/" className="HomeLink BoxShadow">Inicio</Link>
         </div>
     )
 }
