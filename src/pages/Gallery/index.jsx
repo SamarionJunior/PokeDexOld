@@ -26,9 +26,9 @@ const Gallery = ({currentItens, setItens}) => {
             <Toggle>
                 <Filter></Filter>
             </Toggle>
-            {/* <Pagination className="Full">
+            <Pagination>
                 <List></List>
-            </Pagination> */}
+            </Pagination>
             <Link to="/" className="HomeLink BoxShadow">Inicio</Link>
         </div>
     )

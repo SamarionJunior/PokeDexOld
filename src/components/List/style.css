@@ -1,9 +1,7 @@
 .List{
-    width: calc(100% - 1em);
-    height: 800px;
-    border: 1px solid black;
-    margin: 0.25em;
-    padding: 0.25em;
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.25em 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

@@ -1,4 +1,4 @@
-
+import "./style.css"
 
 import React from "react";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const Selector = ({sequence, itensPerPage, setItensPerPage}) => {
     }, [sequence])
 
     return (
-        <select value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
+        <select className="Selector BoxShadow" value={itensPerPage} onChange={(e) => setItensPerPage(Number(+e.target.value))}>
             {options.map(index => 
                 <option key={index} value={index}>
                     {index}
