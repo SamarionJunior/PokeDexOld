@@ -22,7 +22,7 @@ const Gallery = ({currentItens, setItens}) => {
 
     return (
         <div className="Gallery">
-            <h1 className="Title TextShadow">Gallery</h1>
+            <h1 className="TitleGallery TextShadow">Gallery</h1>
             <Toggle>
                 <Filter></Filter>
             </Toggle>

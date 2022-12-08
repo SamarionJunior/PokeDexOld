@@ -44,7 +44,7 @@ const Home = ({pokemons, setSelectedPokemon}) => {
     return (
         <div id="Home" className="Home">
             <div className="Content">
-                <h1 id="Title" className="Title TextShadow">POKEDEX</h1>
+                <h1 id="TitleHome" className="TitleHome TextShadow">POKEDEX</h1>
                 <div id="Searchbar" className="Searchbar BoxShadow">
                     <dir id="SearchSuggestions" className="SearchSuggestions">
                         <input  onBlur={Blur} onFocus={Focus} autoComplete="off" id="SearchInput" className="SearchInput" type="text" onChange={(e) => setSearch(String(e.target.value))} placeholder="Digite o nome do Pokemon!"/>

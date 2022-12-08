@@ -1,12 +1,70 @@
 .CardPokemon{
-    border: 1px solid black;
-    min-width: 200px;
-    min-height: 200px;
-    margin: 0.5em;
+    min-width: 96px;
+    min-height: 96px;
+    max-width: calc(20% - 1em);
+    width: 100%;
+    margin: 1em;
     margin-left: 0;
-    padding: 0.25em;
+    margin-bottom: 0;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f63e02;
 }
-img{
+
+.Image{
     max-width: 96px;
-    max-height: 96px;
+    width: 100%;
+    margin: 0.25em;
+    background-color: #fff9fb;
+}
+
+.Title{
+    display: block;
+    font-size: 100%;
+    width: 100%;
+    padding: 0.25em 0.5em;
+    margin: 0.25em;
+    text-align: center;
+    margin: 0.25em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-family: "Space Mono Bold";
+}
+
+.Types{
+    font-size: 0.75em;
+    padding: 0.25em 0.5em;
+    margin: 0.25em;
+    color: #080f0f;
+    background-color: #fff9fb;
+    font-family: "Space Mono Bold";
+    letter-spacing: 0.1em;
+    width: 100%;
+}
+
+.PainelLink{
+    font-size: 0.75em;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    color: #080f0f;
+    padding: 0.5em;
+    margin: 0.25em;
+    background-color: #fff9fb;
+    font-family: "Space Mono Bold";
+    letter-spacing: 0.1em;
+    width: 100%;
+    text-align: center;
+}
+
+.PainelLink:hover{
+    color: #fff9fb;
+    background-color: #080f0f;
 }

@@ -8,15 +8,18 @@ import { bindActionCreators } from "redux";
 import * as PokemonActions from "../../store/actions/pokemon"
 
 const CardPokemon = ({style, item, setSelectedPokemon}) => (
-    <div className="CardPokemon">
-        {item.sprites.front_default ? <img src={item.sprites.front_default}/> : <img src={item.sprites.other["official-artwork"].front_default}/>}
-        <h1 style={{"fontSize": "1em"}}>{item.name}</h1>
+    <div className="CardPokemon BoxShadow">
+        {item.sprites.front_default ? 
+            <img className="Image BoxShadow" src={item.sprites.front_default}/> : 
+            <img className="Image BoxShadow" src={item.sprites.other["official-artwork"].front_default}/>
+        }
+        <span className="Title TextShadow">{item.name}</span>
         {item.types.map(array => (
-            <div key={array.type.name} action>
+            <div className="Types BoxShadow" key={array.type.name} action>
                 {array.type.name}
             </div>
         ))}
-        <Link to="/painel" onClick={() => setSelectedPokemon(item)}>Selecionar</Link>
+        <Link className="PainelLink BoxShadow" to="/painel" onClick={() => setSelectedPokemon(item)}>Selecionar</Link>
     </div>
 )
 
