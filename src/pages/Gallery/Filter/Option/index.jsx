@@ -73,7 +73,7 @@ const Option = ({options, setOptions}) => {
                             onChange={(e) => setCheck((oldCheck) => generateNewCheck(oldCheck, e))}
                             label={capitalFirstLetter(itensOption)}
                         />
-                        <label className="Labels" for={itensOption}>{itensOption}</label>
+                        <label className="Labels" htmlFor={itensOption}>{itensOption}</label>
                     </div>
                 ))}
             </div>

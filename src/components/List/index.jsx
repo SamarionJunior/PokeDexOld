@@ -8,7 +8,7 @@ import CardPokemon from "../CardPokemon";
 const List = ({itens}) => (
     <div className="List">
         {itens.map(item => (
-            <CardPokemon item={item}></CardPokemon>
+            <CardPokemon key={item.id} item={item}></CardPokemon>
         ))}
     </div>
 )

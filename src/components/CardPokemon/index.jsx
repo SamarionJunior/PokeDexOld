@@ -15,7 +15,7 @@ const CardPokemon = ({style, item, setSelectedPokemon}) => (
         }
         <span className="Title TextShadow">{item.name}</span>
         {item.types.map(array => (
-            <div className="Types BoxShadow" key={array.type.name} action>
+            <div className="Types BoxShadow" key={array.type.name}>
                 {array.type.name}
             </div>
         ))}
