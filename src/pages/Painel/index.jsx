@@ -1,4 +1,5 @@
-
+import "../../style.css"
+import "./style.css"
 
 import React from "react";
 import { useEffect } from "react";
@@ -21,18 +22,20 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
     }, [pokemons, options, pokemonSelected, setItens])
     
     return (
-        <>
-            <h1>Painel</h1>
-            <h3>{pokemonSelected?.name}</h3>
-            {pokemonSelected.sprites.front_default ? <img src={pokemonSelected.sprites.front_default}/> : <img src={pokemonSelected.sprites.other["official-artwork"].front_default} alt="pokemonSelected.sprites.front_default"/>}
-            {pokemonSelected?.types?.map(array => (
-                <div key={`${pokemonSelected?.id} - ${array.type.name}`}>
-                    {array.type.name}
-                </div>
-            ))}
-            <Slide></Slide>
-            <Link to="/gallery">Ver Todos</Link>
-        </>
+        <div className="Painel">
+            <div className="Content">
+                <h1>Painel</h1>
+                <h3>{pokemonSelected?.name}</h3>
+                {pokemonSelected.sprites.front_default ? <img src={pokemonSelected.sprites.front_default}/> : <img src={pokemonSelected.sprites.other["official-artwork"].front_default} alt="pokemonSelected.sprites.front_default"/>}
+                {pokemonSelected?.types?.map(array => (
+                    <div key={`${pokemonSelected?.id} - ${array.type.name}`}>
+                        {array.type.name}
+                    </div>
+                ))}
+                {/* <Slide></Slide> */}
+                <Link to="/gallery">Ver Todos</Link>
+            </div>
+        </div>
     )
 }
 
