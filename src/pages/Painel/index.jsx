@@ -18,11 +18,21 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
 
     const [show, setShow] = useState(false)
 
+    const [id, setId] = useState(0)
+
     const [name, setName] = useState("")
+
     const [imagem, setImagem] = useState("")
     const [types, setTypes] = useState([])
-    const [id, setId] = useState(0)
-    
+
+    const [abilities, setAbilities] = useState()
+    const [moves, setMoves] = useState()
+    const [stats, setStats] = useState()
+
+    const [baseExperience, setBaseExperience] = useState()
+    const [height, setHeight] = useState()
+    const [weight, setWeight] = useState()
+
     useEffect(() => {
         if(Object.keys(pokemonSelected).length === 0){
             pokemonSelected = pokemons[0]
@@ -36,6 +46,15 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
             setImagem(pokemonSelected.sprites.front_default ? pokemonSelected.sprites.front_default : pokemonSelected.sprites.other["official-artwork"].front_default)
             setTypes(pokemonSelected.types)
             setId(pokemonSelected.id)
+
+            setBaseExperience(pokemonSelected.base_experience)
+            setHeight(pokemonSelected.height)
+            setWeight(pokemonSelected.weight)
+
+            setAbilities(pokemonSelected.abilities)
+            setMoves(pokemonSelected.moves)
+            setStats(pokemonSelected.stats)
+
         }
     }, [pokemonSelected])
 
@@ -63,11 +82,67 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
                         </div>
                         <div className="Infor BoxShadow">
                             <h3>{name}</h3>
-                            {types.map(array => (
+                            <div className="information">
+                                {`Base Experience: ${baseExperience}`}
+                            </div>
+                            <div className="information">
+                                {`Height: ${height}`}
+                            </div>
+                            <div className="information">
+                                {`Weight: ${weight}`}
+                            </div>
+                            {/* <div className="information">
+                                {``}
+                            </div> */}
+                            <div className="InformationTypes">
+                                {types.map(information => (
+                                    <div key={`${id} - ${information.type.name}`}>
+                                        {information.type.name}
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="InformationAbilities">
+                                {abilities.map(information => (
+                                    <div key={`${id} - ${information.ability.name}`}>
+                                        <div>
+                                            {information.is_hidden.toString()}
+                                        </div>
+                                        <div>
+                                            {information.slot}
+                                        </div>
+                                        <div>
+                                            {information.ability.name}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="InformationMoves">
+                                {moves.map(information => (
+                                    <div key={`${id} - ${information.move.name}`}>
+                                        {information.move.name}
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="InformationStats">
+                                {stats.map(information => (
+                                    <div key={`${id} - ${information.stat.name}`}>
+                                    <div>
+                                        {information.stat.name}
+                                    </div>
+                                    <div>
+                                        {information.base_stat}
+                                    </div>
+                                    <div>
+                                        {information.effort}
+                                    </div>
+                                    </div>
+                                ))}
+                            </div>
+                            {/* {types.map(array => (
                                 <div key={`${id} - ${array.type.name}`}>
                                     {array.type.name}
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
                     {/* <Slide></Slide> */}

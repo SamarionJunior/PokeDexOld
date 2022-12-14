@@ -93,6 +93,34 @@
                     width: calc(96px * 3 + 1em);
                     height: calc(96px * 4 + 1em);
                 }
+                    .InformationTypes{
+                        margin: 1em;
+                        padding: 1em;
+                        border: 1px solid black;
+                        overflow: auto;
+                        min-height: 500px;
+                    }
+                    .InformationAbilities{
+                        margin: 1em;
+                        padding: 1em;
+                        border: 1px solid black;
+                        overflow: auto;
+                        min-height: 500px;
+                    }
+                    .InformationMoves{
+                        margin: 1em;
+                        padding: 1em;
+                        border: 1px solid black;
+                        overflow: auto;
+                        min-height: 500px;
+                    }
+                    .InformationStats{
+                        margin: 1em;
+                        padding: 1em;
+                        border: 1px solid black;
+                        overflow: auto;
+                        min-height: 500px;
+                    }
 
         .PainelGalleryLink{
             font-size: 1em;
