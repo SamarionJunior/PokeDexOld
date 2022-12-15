@@ -3,7 +3,7 @@ import "./style.css"
 import React from "react";
 import { connect } from "react-redux";
 
-import CardPokemon from '../../../components/CardPokemon';
+import Card from './Card';
 
 const slideLeft = () => {
     const Scroll = document.getElementById("Scroll")
@@ -18,14 +18,14 @@ const slideRight = () => {
     Scroll.scrollLeft = Scroll.scrollLeft + 200 + parseFloat(style.marginLeft.slice(0, -2)) * 2
 }
 
-const Slide = ({itens}) => (
-    <div className="Slide">
-        <h1>Slide</h1>
+const Slide = ({itens, title}) => (
+    <div className="Slide BoxShadow">
+        <h1>{title}</h1>
         <div className="Slider">
             <button onClick={slideLeft} className="SliderButton Prev">&lt;</button>
             <div id="Scroll" className="SliderScroll">
                 {itens?.map(item => (
-                    <CardPokemon key={item.id} item={item}></CardPokemon>
+                    <Card key={item.id} item={item}></Card>
                 ))}
             </div>
             <button onClick={slideRight} className="SliderButton Next">&gt;</button>

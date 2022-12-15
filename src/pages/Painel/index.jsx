@@ -12,7 +12,7 @@ import { useState } from "react";
 import * as SlideActions from "../../store/actions/slide"
 // import * as PokemonActions from "../../store/actions/pokemon"
 
-// import Slide from "./Slide";
+import Slide from "./Slide";
 
 const Painel = ({pokemonSelected, pokemons, setItens}) => {
 
@@ -69,83 +69,95 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
             {show ?
                 <div className="PainelContent BoxShadow">
                     <h1 className="PainelTitle">Painel</h1>
-                    <div className="PainelCard BoxShadow">
-                        <div className="PainelSlideImgem BoxShadow">
+
+                    <div className="BoxShadow" style={{width: "100%"}}>    
+                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                    </div>          
+                    {/* <div className="PainelCard BoxShadow"> */}
+                        {/* <div className="PainelSlideImgem BoxShadow">
                             <div className="PainelSlideImgemFullDiv BoxShadow">
                                 <img className="PainelImagemfull" src={imagem} alt="pokemonSelected.sprites.front_default"/>
                             </div>
-                            <div className="PainelSlideDiv">
-                                <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                                <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                                <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                            </div>
-                        </div>
+                            <div className="PainelSlideDiv"> */}
+                            {/* </div> */}
+                        {/* </div> */}
                         <div className="Infor BoxShadow">
-                            <h3>{name}</h3>
-                            <div className="information">
+
+                            <h3 className="InforTitle">{name}</h3>
+                            <div className="ItemsInformation">
                                 {`Base Experience: ${baseExperience}`}
                             </div>
-                            <div className="information">
+                            <div className="ItemsInformation" >
                                 {`Height: ${height}`}
                             </div>
-                            <div className="information">
+                            <div className="ItemsInformation">
                                 {`Weight: ${weight}`}
                             </div>
-                            {/* <div className="information">
-                                {``}
-                            </div> */}
-                            <div className="InformationTypes">
+
+                            <h3 className="InforTitle">Stats</h3>
+
+                            {/* <div className="InformationStats"> */}
+                                {stats.map(information => (
+                                    <div className="ItemsInformation" key={`${id} - ${information.stat.name}`}>
+                                        {/* <div> */}
+                                            {information.stat.name}
+                                        {/* </div>
+                                        <div>
+                                            {information.base_stat}
+                                        </div>
+                                        <div>
+                                            {information.effort}
+                                        </div> */}
+                                    </div>
+                                ))}
+                            {/* </div> */}
+
+                            <h3 className="InforTitle">Types</h3>
+
+                            {/* <div className="InformationTypes"> */}
                                 {types.map(information => (
-                                    <div key={`${id} - ${information.type.name}`}>
+                                    <div className="ItemsInformation" key={`${id} - ${information.type.name}`}>
                                         {information.type.name}
                                     </div>
                                 ))}
-                            </div>
-                            <div className="InformationAbilities">
+                            {/* </div> */}
+
+                            <h3 className="InforTitle">Abilities</h3>
+
+                            {/* <div className="InformationAbilities"> */}
                                 {abilities.map(information => (
-                                    <div key={`${id} - ${information.ability.name}`}>
-                                        <div>
+                                    <div className="ItemsInformation" key={`${id} - ${information.ability.name}`}>
+                                        {/* <div>
                                             {information.is_hidden.toString()}
                                         </div>
                                         <div>
                                             {information.slot}
                                         </div>
-                                        <div>
+                                        <div> */}
                                             {information.ability.name}
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 ))}
-                            </div>
-                            <div className="InformationMoves">
+                            {/* </div> */}
+
+                            <h3 className="InforTitle">Moves</h3>
+                            
+                            {/* <div className="InformationMoves"> */}
                                 {moves.map(information => (
-                                    <div key={`${id} - ${information.move.name}`}>
+                                    <div className="ItemsInformation" key={`${id} - ${information.move.name}`}>
                                         {information.move.name}
                                     </div>
                                 ))}
-                            </div>
-                            <div className="InformationStats">
-                                {stats.map(information => (
-                                    <div key={`${id} - ${information.stat.name}`}>
-                                    <div>
-                                        {information.stat.name}
-                                    </div>
-                                    <div>
-                                        {information.base_stat}
-                                    </div>
-                                    <div>
-                                        {information.effort}
-                                    </div>
-                                    </div>
-                                ))}
-                            </div>
-                            {/* {types.map(array => (
-                                <div key={`${id} - ${array.type.name}`}>
-                                    {array.type.name}
-                                </div>
-                            ))} */}
+                            {/* </div> */}
+
                         </div>
-                    </div>
-                    {/* <Slide></Slide> */}
+                    {/* </div> */}
+                            
+                    <Slide title={"Mesmo Tipo"}></Slide>
+
                     <Link className="PainelGalleryLink BoxShadow" to="/gallery">Ver Todos</Link>
                 </div> :
                 <div>Selecione um Pokemon</div>

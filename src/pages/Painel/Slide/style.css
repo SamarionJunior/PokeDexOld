@@ -1,13 +1,17 @@
 .Slide{
-    border: solid 1px black;
     margin: 0.25em;
     padding: 0.25em;
+    width: 100%;
 }
 .Slider{
     border: solid 1px black;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
     margin: 0.25em;
     padding: 0.25em;
+    width: calc(100% - 0.5em);
 }
 .SliderButton{
     min-width: 100px;
@@ -15,11 +19,13 @@
     padding: 0.25em;
 }
 .SliderScroll{
+    flex-grow: 1;
     border: solid 1px black;
     overflow: auto;
     display: flex;
     margin: 0.25em;
     padding: 0.25em;
+    max-width: calc(100% - 200px - 1em - 0.5em);
 }
 /* .Slide{
     display: flex;
