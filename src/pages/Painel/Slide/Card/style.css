@@ -1,12 +1,10 @@
 .Card{
     min-width: 96px;
     min-height: 96px;
-    max-width: calc(20% - 1em);
+    max-width: calc(30% - 1em);
     width: 100%;
-    margin: 1em;
-    margin-left: 0;
-    margin-bottom: 0;
-    padding: 0.5em;
+    margin: 0.5em;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

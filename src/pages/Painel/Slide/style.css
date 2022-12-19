@@ -9,23 +9,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-between;
-    margin: 0.25em;
-    padding: 0.25em;
+    margin: 0.5em;
+    padding: 0.5em;
     width: calc(100% - 0.5em);
 }
 .SliderButton{
     min-width: 100px;
-    margin: 0.25em;
-    padding: 0.25em;
+    margin: 0.5em;
+    padding: 0.5em;
 }
 .SliderScroll{
     flex-grow: 1;
     border: solid 1px black;
     overflow: auto;
     display: flex;
-    margin: 0.25em;
-    padding: 0.25em;
-    max-width: calc(100% - 200px - 1em - 0.5em);
+    margin: 0.5em;
+    padding: 0.5em;
+    max-width: calc(100% - 200px - 2em - 1em);
 }
 /* .Slide{
     display: flex;
