@@ -5,31 +5,31 @@ import { connect } from "react-redux";
 
 import Card from './Card';
 
-const slideLeft = () => {
-    const Scroll = document.getElementById("Scroll")
-    var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
-    Scroll.scrollLeft = Scroll.scrollLeft - 200 - parseFloat(style.marginLeft.slice(0, -2)) * 2
-}
+// const slideLeft = () => {
+//     const Scroll = document.getElementById("Scroll")
+//     var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
+//     Scroll.scrollLeft = Scroll.scrollLeft - 200 - parseFloat(style.marginLeft.slice(0, -2)) * 2
+// }
 
-const slideRight = () => {
-    const Scroll = document.getElementById("Scroll")
-    var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
-    console.log(style.marginLeft)
-    Scroll.scrollLeft = Scroll.scrollLeft + 200 + parseFloat(style.marginLeft.slice(0, -2)) * 2
-}
+// const slideRight = () => {
+//     const Scroll = document.getElementById("Scroll")
+//     var style = Scroll.currentStyle || window.getComputedStyle(Scroll);
+//     console.log(style.marginLeft)
+//     Scroll.scrollLeft = Scroll.scrollLeft + 200 + parseFloat(style.marginLeft.slice(0, -2)) * 2
+// }
 
 const Slide = ({itens, title}) => (
     <div className="Slide BoxShadow">
-        <h1>{title}</h1>
-        <div className="Slider">
-            <button onClick={slideLeft} className="SliderButton Prev">&lt;</button>
+        <h3 className="SlideTitle">{title}</h3>
+        {/* <div className="Slider"> */}
+            {/* <button onClick={slideLeft} className="SliderButton Prev"><span>P</span></button> */}
             <div id="Scroll" className="SliderScroll">
                 {itens?.map(item => (
                     <Card key={item.id} item={item}></Card>
                 ))}
             </div>
-            <button onClick={slideRight} className="SliderButton Next">&gt;</button>
-        </div>
+            {/* <button onClick={slideRight} className="SliderButton Next"><span>N</span></button> */}
+        {/* </div> */}
     </div>
 )
 

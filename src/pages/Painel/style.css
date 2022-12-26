@@ -10,7 +10,7 @@
     .PainelContent{
         padding: 1em;
         margin: 1em;
-        max-width: 800px;
+        max-width: calc(800px - 2em);
         height: 100%;
         width: 100%;
         background-color: #fff9fb;
@@ -19,97 +19,68 @@
         justify-content: space-around;
         align-items: center;
     }
+
         .PainelTitle{
             font-size: 3em;
         }
-            /* .PainelCard{
-                background-color: #f63e02;
-                margin: 1em 0;
-                width: 100%;
-                max-width: calc(96px * 6 + 7em);
-                height: 100%;
-                max-height: calc(96px * 4 + 7em);
-                padding: 1em;
-                border: solid 1px black;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
 
-            } */
-                /* .PainelSlideImgem{
-                    margin: 0.5em;
+        .PainelImagens{
+            max-width: calc(100% - 2em);
+            width: 100%;
+            padding: 1em;
+            margin: 1em;
+            display: flex;
+            justify-content: space-between;
+            overflow: auto;
+        }
+
+            .PainelImagem{
+                max-width: calc(96px + 2em);
+                padding: 1em;
+                margin: 1em;
+            }
+
+        .Infor{
+            max-width: calc(100% - 2em);
+            width: 100%;
+            margin: 1em;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+            .paragraph{
+                max-width: calc(100% - 2em);
+                margin: 1em;
+                padding: 1em;
+                width: 100%;
+                display: row;
+                flex-wrap: wrap;
+            }
+
+                .InforTitle{
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .ParagraphIntems{
+                    width: 100%;
                     display: flex;
                     flex-direction: row;
-                    flex-wrap: wrap;
                     justify-content: center;
                     align-items: center;
-                    background-color: #fff9fb;
-                    padding: 0.5em;
-                    width: calc(96px * 3 + 1em);
-                    height: calc(96px * 4 + 1em);
-                }
-                    .PainelSlideImgemFullDiv{
-                        background-color: #f63e02;
-                        margin: 0.5em;
-                        width: 100%;
-                        max-width: calc(96px * 3 - 1em);
-                        height: 100%;
-                        max-height: calc(96px * 3 - 1em);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                        .PainelImagemfull{
-                            max-width: 96px;
-                            max-height: 96px;
-                        }
-                    .PainelSlideDiv{
-                        width: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: nowrap;
-                        justify-content: space-around;
-                        align-items: center;
-                    }
-                        .PainelImagem{
-                            background-color: #f63e02;
-                            margin: 0.5em;
-                            width: calc(33% - 1.0em);
-                            height: calc(33% - 1.0em);
-                            max-width: calc(96px - 1em);
-                            max-height: calc(96px - 1em);
-                        } */
-
-                .Infor{
-                    margin: 1em;
-                    padding: 1em;
-                    /* border: solid 1px black; */
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: flex-start;
                     flex-wrap: wrap;
-                    width: 100%;
                 }
-                    /* .InformationTypes{
+
+                    .ItemsInformation{
+                        padding: 0.5em;
+                        margin: 0.5em;
+                        font-size: 0.75em;
                         border: 1px solid black;
                     }
-                    .InformationAbilities{
-                        border: 1px solid black;
-                    }
-                    .InformationMoves{
-                        border: 1px solid black;
-                    }
-                    .InformationStats{
-                        border: 1px solid black;
-                    } */
-                        .ItemsInformation{
-                            padding: 0.5em;
-                            margin: 0.5em;
-                            font-size: 0.75em;
-                            border: 1px solid black;
-                        }
 
         .PainelGalleryLink{
             font-size: 1em;
@@ -119,18 +90,11 @@
             color: #fff9fb;
             font-weight: bolder;
             padding: 1em 3em;
+            margin: 1em;
             background-color: #f63e02;
             font-family: "Space Mono Regular";
             letter-spacing: 0.1em;
-        }
-
-        .PainelGalleryLink:hover{
+        }.PainelGalleryLink:hover{
             color: #fff9fb;
             background-color: #080f0f;
         }
-
-.InforTitle{
-    padding: 0.5em;
-    width: 100%;
-    text-align: center;
-}

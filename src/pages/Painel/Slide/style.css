@@ -1,32 +1,44 @@
 .Slide{
-    margin: 0.25em;
-    padding: 0.25em;
-    width: 100%;
+    margin: 1em;
+    padding: 1em;
+    width: calc(100% - 2em);
 }
-.Slider{
-    border: solid 1px black;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    margin: 0.5em;
-    padding: 0.5em;
-    width: calc(100% - 0.5em);
-}
-.SliderButton{
-    min-width: 100px;
-    margin: 0.5em;
-    padding: 0.5em;
-}
-.SliderScroll{
-    flex-grow: 1;
-    border: solid 1px black;
-    overflow: auto;
-    display: flex;
-    margin: 0.5em;
-    padding: 0.5em;
-    max-width: calc(100% - 200px - 2em - 1em);
-}
+    .SlideTitle{
+        width: 100%;
+        text-align: center;
+    }
+    /* .Slider{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:space-between;
+        margin: 1em;
+        padding: 1em;
+        width: calc(100% - 2em);
+    } */
+        /* .SliderButton{
+            margin: 1em;
+            padding: 1em;
+            min-width: 25px;
+            min-height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center
+        }
+        .SliderButton>span{
+            font-size: 3em;
+        } */
+        .SliderScroll{
+            flex-grow: 1;
+            overflow: auto;
+            display: flex;
+            margin: 1em;
+            padding: 1em;
+            width: calc(100% - 2em);
+        }
+
 /* .Slide{
     display: flex;
     flex-direction: column;

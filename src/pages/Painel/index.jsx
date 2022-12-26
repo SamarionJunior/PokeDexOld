@@ -22,7 +22,7 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
 
     const [name, setName] = useState("")
 
-    const [imagem, setImagem] = useState("")
+    const [imagem, setImagem] = useState([])
     const [types, setTypes] = useState([])
 
     const [abilities, setAbilities] = useState()
@@ -43,7 +43,16 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
         if(Object.keys(pokemonSelected).length !== 0){
             setShow(true)
             setName(pokemonSelected.name)
-            setImagem(pokemonSelected.sprites.front_default ? pokemonSelected.sprites.front_default : pokemonSelected.sprites.other["official-artwork"].front_default)
+            setImagem([
+                pokemonSelected.sprites.front_default ? pokemonSelected.sprites.front_default : pokemonSelected.sprites.other["official-artwork"].front_default,
+                pokemonSelected.sprites.back_default ? pokemonSelected.sprites.back_default : undefined,
+                pokemonSelected.sprites.front_female ? pokemonSelected.sprites.front_female : undefined,
+                pokemonSelected.sprites.back_female ? pokemonSelected.sprites.back_female : undefined,
+                pokemonSelected.sprites.front_shiny ? pokemonSelected.sprites.front_shiny : undefined,
+                pokemonSelected.sprites.back_shiny ? pokemonSelected.sprites.back_shiny : undefined,
+                pokemonSelected.sprites.front_shiny_female ? pokemonSelected.sprites.front_shiny_female : undefined,
+                pokemonSelected.sprites.back_shiny_female ? pokemonSelected.sprites.back_shiny_female : undefined
+            ])
             setTypes(pokemonSelected.types)
             setId(pokemonSelected.id)
 
@@ -68,93 +77,132 @@ const Painel = ({pokemonSelected, pokemons, setItens}) => {
         <div className="Painel">
             {show ?
                 <div className="PainelContent BoxShadow">
+
                     <h1 className="PainelTitle">Painel</h1>
 
-                    <div className="BoxShadow" style={{width: "100%"}}>    
-                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                        <img className="ItemsInformation BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                    <div className="PainelImagens BoxShadow">
+                        {imagem.map(img =>
+                            img !== undefined ? <img key={img} className="PainelImagem BoxShadow" src={img} alt="pokemonSelected.sprites.front_default"/> : undefined 
+                        )} 
+                        {/* <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/>
+                        <img className="PainelImagem BoxShadow" src={imagem} alt="pokemonSelected.sprites.front_default"/> */}
                     </div>          
-                    {/* <div className="PainelCard BoxShadow"> */}
-                        {/* <div className="PainelSlideImgem BoxShadow">
-                            <div className="PainelSlideImgemFullDiv BoxShadow">
-                                <img className="PainelImagemfull" src={imagem} alt="pokemonSelected.sprites.front_default"/>
-                            </div>
-                            <div className="PainelSlideDiv"> */}
-                            {/* </div> */}
-                        {/* </div> */}
-                        <div className="Infor BoxShadow">
+                        
+                    <div className="Infor BoxShadow">
+
+                        <div className="paragraph BoxShadow">
 
                             <h3 className="InforTitle">{name}</h3>
-                            <div className="ItemsInformation">
-                                {`Base Experience: ${baseExperience}`}
+
+                            <div className="ParagraphIntems">
+
+                                <div className="ItemsInformation">
+                                    {`Base Experience: ${baseExperience}`}
+                                </div>
+
+                                <div className="ItemsInformation" >
+                                    {`Height: ${height}`}
+                                </div>
+
+                                <div className="ItemsInformation">
+                                    {`Weight: ${weight}`}
+                                </div>
+
                             </div>
-                            <div className="ItemsInformation" >
-                                {`Height: ${height}`}
-                            </div>
-                            <div className="ItemsInformation">
-                                {`Weight: ${weight}`}
-                            </div>
+
+                        </div>
+
+                        <div className="paragraph BoxShadow">
 
                             <h3 className="InforTitle">Stats</h3>
 
-                            {/* <div className="InformationStats"> */}
-                                {stats.map(information => (
-                                    <div className="ItemsInformation" key={`${id} - ${information.stat.name}`}>
-                                        {/* <div> */}
-                                            {information.stat.name}
-                                        {/* </div>
-                                        <div>
-                                            {information.base_stat}
+                            <div className="ParagraphIntems">
+
+                                {/* <div className="InformationStats"> */}
+                                    {stats.map(information => (
+                                        <div className="ItemsInformation" key={`${id} - ${information.stat.name}`}>
+                                            {/* <div> */}
+                                                {information.stat.name}
+                                            {/* </div>
+                                            <div>
+                                                {information.base_stat}
+                                            </div>
+                                            <div>
+                                                {information.effort}
+                                            </div> */}
                                         </div>
-                                        <div>
-                                            {information.effort}
-                                        </div> */}
-                                    </div>
-                                ))}
-                            {/* </div> */}
+                                    ))}
+                                {/* </div> */}
+
+                            </div>
+
+                        </div>
+
+                        <div className="paragraph BoxShadow">
 
                             <h3 className="InforTitle">Types</h3>
 
-                            {/* <div className="InformationTypes"> */}
-                                {types.map(information => (
-                                    <div className="ItemsInformation" key={`${id} - ${information.type.name}`}>
-                                        {information.type.name}
-                                    </div>
-                                ))}
-                            {/* </div> */}
+                            <div className="ParagraphIntems">
+
+                                {/* <div className="InformationTypes"> */}
+                                    {types.map(information => (
+                                        <div className="ItemsInformation" key={`${id} - ${information.type.name}`}>
+                                            {information.type.name}
+                                        </div>
+                                    ))}
+                                {/* </div> */}
+
+                            </div>
+
+                        </div>
+
+                        <div className="paragraph BoxShadow">
 
                             <h3 className="InforTitle">Abilities</h3>
 
-                            {/* <div className="InformationAbilities"> */}
-                                {abilities.map(information => (
-                                    <div className="ItemsInformation" key={`${id} - ${information.ability.name}`}>
-                                        {/* <div>
-                                            {information.is_hidden.toString()}
-                                        </div>
-                                        <div>
-                                            {information.slot}
-                                        </div>
-                                        <div> */}
-                                            {information.ability.name}
-                                        {/* </div> */}
-                                    </div>
-                                ))}
-                            {/* </div> */}
+                            <div className="ParagraphIntems">
 
-                            <h3 className="InforTitle">Moves</h3>
-                            
-                            {/* <div className="InformationMoves"> */}
-                                {moves.map(information => (
-                                    <div className="ItemsInformation" key={`${id} - ${information.move.name}`}>
-                                        {information.move.name}
-                                    </div>
-                                ))}
-                            {/* </div> */}
+                                {/* <div className="InformationAbilities"> */}
+                                    {abilities.map(information => (
+                                        <div className="ItemsInformation" key={`${id} - ${information.ability.name}`}>
+                                            {/* <div>
+                                                {information.is_hidden.toString()}
+                                            </div>
+                                            <div>
+                                                {information.slot}
+                                            </div>
+                                            <div> */}
+                                                {information.ability.name}
+                                            {/* </div> */}
+                                        </div>
+                                    ))}
+                                {/* </div> */}
+
+                            </div>
 
                         </div>
-                    {/* </div> */}
+
+                        <div className="paragraph BoxShadow">
+
+                            <h3 className="InforTitle">Moves</h3>
+
+                            <div className="ParagraphIntems">
+                        
+                                {/* <div className="InformationMoves"> */}
+                                    {moves.map(information => (
+                                        <div className="ItemsInformation" key={`${id} - ${information.move.name}`}>
+                                            {information.move.name}
+                                        </div>
+                                    ))}
+                                {/* </div> */}
+
+                            </div>
+
+                        </div>
+
+                    </div>
                             
                     <Slide title={"Mesmo Tipo"}></Slide>
 
